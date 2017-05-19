@@ -11,7 +11,7 @@
 </head>
 
 <body>
-  <script type="text/javascript" src="cordova.js"></script>
+
   <div class="" data-role="page" id="main">
     <div class="head" data-role="header">
     </div>
@@ -19,10 +19,7 @@
       <div class="quickinfo contentBlock">
         <p><i class="fa fa-sun-o" aria-hidden="true"></i> 21:30
         <i class="fa fa-flag-o" aria-hidden="true"></i> NO 3</p>
-        <div class="rightSide"> <i class="fa fa-cog" aria-hidden="true"></i></div>
-
-
-
+        <div class="rightSide"> <a href="#settings"><i class="fa fa-cog" aria-hidden="true"></i></a></div>
       </div>
       <div class="floatclear">
 
@@ -36,24 +33,34 @@
       </div>
       <!-- Insert content here -->
     </div>
-    <div class="footer" data-role="footer">
-      <h2>&copy; INF1A:</h2>
-    </div>
   </div>
+
 
   <!-- Andere pagina's volgen dit format -->
   <div class="" data-role="page" id="weatherDay">
-    <div class="head" data-role="header">
-      SMART-Wasknijper
-    </div>
     <div class="ui-content" data-role="main">
-      <h1>My second page</h1>
-    </div>
-    <div class="footer" data-role="footer">
-      &copy;INF1A
+      <h1>Daily weather report</h1>
     </div>
   </div>
 
+
+  <!-- Andere pagina's volgen dit format -->
+  <div class="" data-role="page" id="weatherWeek">
+    <div class="ui-content" data-role="main">
+      <h1>Weekly weather report</h1>
+    </div>
+  </div>
+
+
+  <!-- Andere pagina's volgen dit format -->
+  <div class="" data-role="page" id="settings">
+    <div class="ui-content" data-role="main">
+      <h1>insert settings here</h1>
+    </div>
+  </div>
+
+
+  <script type="text/javascript" src="cordova.js"></script>
   <script src="jq/jquery-1.11.1.js"></script>
   <script src="jq/jquery.mobile-1.4.5.min.js"></script>
   <script src="js/pageSwitcher.js"></script>
