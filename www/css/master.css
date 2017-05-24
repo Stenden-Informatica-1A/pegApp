@@ -1,0 +1,55 @@
+*{
+  margin:0;
+  padding:0;
+}
+@font-face {
+    font-family: "Raleway";
+    src: url("../fonts/Raleway-Regular.ttf") format("opentype");
+  }
+body {
+  font-family: "Raleway";
+}
+.head{
+  text-align: center;
+}
+.contentBlock{
+  padding:5px;
+  margin-bottom: 15px;
+  padding-left: 20px;
+  font-size: 1.5em;
+}
+.ui-content{
+  padding: 0px;
+  margin-bottom: 40px;
+}
+.quickinfo{
+  height: 20px;
+}
+.quickinfo>p{
+float: left;
+  width:60%;
+}
+.rightSide{
+  float: right;
+}
+.floatclear{
+  clear:both;
+}
+.footer{
+    position:fixed;
+    height:40px;
+    bottom:0px;
+    left:0px;
+    right:0px;
+    margin-bottom:0px;
+    text-align: center;
+}
+.report{
+  width: 80%;
+  padding-right: 30px;
+  background-image: -webkit-gradient(
+  linear, left center, right center, from(rgba(50,50,50,0.8)),
+  to(rgba(80,80,80,0.0))
+);
+  color: white
+}
