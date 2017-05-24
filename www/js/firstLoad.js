@@ -1,3 +1,55 @@
+var page;
+var checked = false;
+
+//Kijken of er een Wasknijper is verbonden
+db.transaction("KnijperDB").objectStore("employee").get("00-03").onsuccess = function(event) {
+  var checked = true;
+};
+
+if( checked == true ){
+	$(document).on("pagechange", function (e, data) {
+		page = data.toPage[0].id;
+	});
+	$(document).on('swipeleft swiperight', function (event) {
+		// next page
+		if (event.type == 'swipeleft' && page !="weatherWeek" && page!="settings" && page!="firstLoad") {
+			var nextPage = $.mobile.activePage.next('[data-role=page]');
+			if (nextPage) {
+				$.mobile.changePage(nextPage, {
+					transition: "slide" // or any transition
+				}
+			  );
+			}
+			activePage = $( ".selector" ).pagecontainer( "getActivePage" );
+		}
+		// previous page
+		if (event.type == 'swiperight' && page != "main"  && page!="settings" && page!="firstLoad") {
+			var prevPage = $.mobile.activePage.prev('[data-role=page]');
+			if (prevPage) {
+				$.mobile.changePage(prevPage, {
+					transition: "slide",
+					reverse: true // reverse effect
+
+				}
+			  );
+			  activePage = $( ".selector" ).pagecontainer( "getActivePage" );
+			}
+		}
+	});
+}
+else{ //Terug sturen naar de pagina om je wasknijper toe te voegen.
+	window.location.href = "index.html#firstLoad";
+}
+
+
+
+
+
+
+
+
+
+
 //Zoeken naar wasknijpers in de omgeving
 function searchKnijper(){
 	$(".fa-refresh").css("display","block")

@@ -4,7 +4,7 @@ $(document).on("pagechange", function (e, data) {
 });
 $(document).on('swipeleft swiperight', function (event) {
     // next page
-    if (event.type == 'swipeleft' && page !="weatherWeek" && page!="settings") {
+    if (event.type == 'swipeleft' && page !="weatherWeek" && page!="settings" && page!="firstLoad") {
         var nextPage = $.mobile.activePage.next('[data-role=page]');
         if (nextPage) {
             $.mobile.changePage(nextPage, {
@@ -15,7 +15,7 @@ $(document).on('swipeleft swiperight', function (event) {
         activePage = $( ".selector" ).pagecontainer( "getActivePage" );
     }
     // previous page
-    if (event.type == 'swiperight' && page != "main"  && page!="settings") {
+    if (event.type == 'swiperight' && page != "main"  && page!="settings" && page!="firstLoad") {
         var prevPage = $.mobile.activePage.prev('[data-role=page]');
         if (prevPage) {
             $.mobile.changePage(prevPage, {
