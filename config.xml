@@ -9,5 +9,4 @@
     </author>
     <content src="index.html" />
     <access origin="*" />
-    <engine name="android" spec="~6.2.3" />
 </widget>
