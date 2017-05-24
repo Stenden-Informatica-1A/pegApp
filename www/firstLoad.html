@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+  <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <title>Smart wasknijper</title>
+</head>
+
+<body>
+  <script type="text/javascript" src="cordova.js"></script>
+  <div class="" data-role="page" id="main">
+    <div class="head" data-role="header">
+	  <h1>Zoek uw SMART-Knijper</h1>
+    </div>
+    <div class="ui-content" data-role="main">
+	  <div style="display:none; margin:15px; " class="gevondenDevices">
+		<div onclick="addKnijper()"><h3>Wasknijper1</h3></div>
+	  </div>
+	  <div class="center">
+		<div style="height:200px;">
+	      <i style="display:none; margin:0 auto;" class="fa fa-refresh fa-spin fa-fw"></i>
+		</div>
+		<button onclick="searchKnijper()" class="ui-btn">Zoeken</button>
+	  </div>
+    </div>
+    <div class="footer" data-role="footer">
+      <h2>&copy; INF1A:</h2>
+    </div>
+  </div>
+
+  <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+  <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+  <script src="js/firstLoad.js"></script>
+</body>
+</html>
