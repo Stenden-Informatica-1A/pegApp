@@ -1,6 +1,6 @@
 /**
- * This code receives weather data and outputs useful was drying information.
- * 
+ * This code receives weather data and outputs useful was drying information for today.
+ * The data is provided by Apixu (https://www.apixu.com/).
  */
 
 $(document).ready(function(){
