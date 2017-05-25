@@ -21,6 +21,7 @@ $(document).ready(function(){
 		$(".dAvgHum").html(results.forecast.forecastday[0].day.avghumidity + " %");
 		
 		//Day page: Weather info per hour.
+		
         var sunR = results.forecast.forecastday[0].astro.sunrise;
         var sunRise = parseInt(sunR.substring(0,2),10)+1;   //first hour of sun.
         var tr;
@@ -40,13 +41,15 @@ $(document).ready(function(){
 
             $('#tDay').append(tr);
         }
+		
 		//Week page: Weather info per day.
+		
 		var date = new Date();
 		var weekday = new Array(7);
 		var wText = new Array(7);
 		var wIcon = new Array(7);
 		var frequency = {};
-		var max = 0;
+		var max = condition = sunny = cloudy = rainFall = wImg = 0;
 		var tResult, iResult;
 		
 		weekday[0] = "Zondag";
@@ -57,15 +60,24 @@ $(document).ready(function(){
 		weekday[5] = "Vrijdag";
 		weekday[6] = "Zaterdag";
 		
-		for (i = 0; i < results.forecast.forecastday.length; i++) { //filling the week weather table and arrays for the general weather this week.
+		for (i = 0; i < results.forecast.forecastday.length; i++) { 	//filling the 'week weather table' and arrays for the general weather condition this week.
 			wText.push(results.forecast.forecastday[i].day.condition.text);
 			wIcon.push(results.forecast.forecastday[i].day.condition.icon);
+			condition = results.forecast.forecastday[i].day.condition.code;
+			if(condition == 1000){
+				sunny++;
+			}else if(condition <= 1030){
+				cloudy++;
+			}else{
+				rainFall++;
+			}
 			
             if(i==0){
 				var day = date.getDay();
-			}if(day > 6){
+			}else if(day > 6){
 				day = 0;
 			}
+			
             tr = $('<tr/>');
             tr.append("<td>" + weekday[day] + "</td>");
             tr.append("<td><img src='" + results.forecast.forecastday[i].day.condition.icon + "' alt='Weer icoon'><br>" + results.forecast.forecastday[i].day.condition.text + "</td>");
@@ -77,22 +89,60 @@ $(document).ready(function(){
 			day++;
         }
 		
-		for(var v in wText){	//Most common weather condition (text)
+		if(sunny > 4){	//Calculates the weather condition for this week.
+			condition = "Zonnig";
+		}else if(sunny > 1 && cloudy > 1 && rainFall < 2){
+			condition = "Zonnig met af en toe bewolking";
+		}else if(sunny < 2 && cloudy > 1 && rainFall < 2){
+			condition = "Bewolkt";
+		}else if(rainFall > 3){
+			condition = "Neerslag";
+		}else{
+			condition = "Afwisselend";
+		}
+		
+		for(var v in wText){	//Most common weather condition (text).
 			frequency[wText[v]]=(frequency[wText[v]] || 0)+1;
 			if(frequency[wText[v]] > max){
 				max = frequency[wText[v]];
 				tResult = wText[v];
 			}
 		}
-		$("#aText").html(tResult); 
+		if(max > 3){	// Weather condition is most common if most common > 3 else calculated weather condition (text).
+			$("#aText").html("Het weer van deze week is voornamelijk: " + tResult + "."); 
+		}else if(condition == "Afwisselend"){
+			$("#aText").html("Het weer van deze week is: Afwisselend.");
+		}else{
+			$("#aText").html("Het weer van deze week is voornamelijk: " + condition + "."); 
+		}
 		max = 0;
-		for(var v in wIcon){	//Most common weather condition (icon)
+		for(var v in wIcon){	//Most common weather condition (icon).
 			frequency[wIcon[v]]=(frequency[wIcon[v]] || 0)+1;
 			if(frequency[wIcon[v]] > max){
 				max = frequency[wIcon[v]];
 				iResult = wIcon[v];
 			}
 		}
-		$("#aIcon").html("<img src='" + iResult + "' alt='Weer icoon'>");
+		if(max > 3){	// Weather condition is most common if most common > 3, else calculated weather condition (icon).
+			$("#aIcon").html("<img src='" + iResult + "' alt='Weer icoon'>");
+		}else{
+			switch(condition){
+				case "Zonnig":
+					wImg =  113;
+					break;
+				case "Zonnig met af en toe bewolking":
+					wImg =  116;
+					break;
+				case "Bewolkt":
+					wImg =  122;
+					break;
+				case "Neerslag":
+					wImg =  308;
+					break;
+				default:
+					wImg = 176;
+			}
+			$("#aIcon").html("<img src='//cdn.apixu.com/weather/64x64/day/" + wImg +".png' alt='Weer icoon'>");
+		}
     });
 });
