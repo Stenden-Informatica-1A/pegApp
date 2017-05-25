@@ -12,6 +12,7 @@ $(document).ready(function(){
     $.getJSON(Query, function (results) {   //Get JSON data using an AJAX request.
 	
 		//Homepage: weather info for today.
+		
 		var condition = results.forecast.forecastday[0].day.condition.code;
 		var precip = results.forecast.forecastday[0].day.totalprecip_mm;
 		var aHumid = results.forecast.forecastday[0].day.avghumidity;
@@ -27,6 +28,8 @@ $(document).ready(function(){
 		
 		if(condition == 1000 && aHumid < 80 && mWindS > 11 && mWindS < 29){
 			condition = "Dit is een perfecte dag om je was te drogen!";
+		}else if(condition <= 1030 && mWindS > 11 && mWindS < 29 && aHumid < 85){
+			condition = "Dit is een prima dag om je was te drogen.";
 		}else if(condition <= 1030 && mWindS < 29){
 			condition = "Het drogen van je was kan even duren vandaag.";
 		}else{
