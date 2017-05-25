@@ -12,12 +12,32 @@ $(document).ready(function(){
     $.getJSON(Query, function (results) {   //Get JSON data using an AJAX request.
 	
 		//Homepage: weather info for today.
+		var condition = results.forecast.forecastday[0].day.condition.code;
+		var precip = results.forecast.forecastday[0].day.totalprecip_mm;
+		var aHumid = results.forecast.forecastday[0].day.avghumidity;
+		var mWindS = results.forecast.forecastday[0].day.maxwind_kph;
 		
-		$(".dCond").html(results.forecast.forecastday[0].day.condition.text);
+		if(precip < 1){
+			precip = " en er is weinig kans op regen."
+		}else if(precip < 4){
+			precip = " en er is kans op regen.";
+		}else{
+			precip = " en het gaat regenen."
+		}
+		
+		if(condition == 1000 && aHumid < 80 && mWindS > 11 && mWindS < 29){
+			condition = "Dit is een perfecte dag om je was te drogen!";
+		}else if(condition <= 1030 && mWindS < 29){
+			condition = "Het drogen van je was kan even duren vandaag.";
+		}else{
+			condition = "Pas op, neerslag of harde wind verwacht!";
+		}
+		
+		$(".dCond").html("Vandaag is het " + results.forecast.forecastday[0].day.condition.text.toLowerCase() + precip + "<br><br><b>" + condition + "</b>");
 		$(".dIcon").html("<img src='" + results.forecast.forecastday[0].day.condition.icon + "' alt='Weer icoon'>");
 		$(".dAvgTemp").html(results.forecast.forecastday[0].day.avgtemp_c + " °C");
 		$(".cWindDir").html(results.current.wind_dir);
-		$(".cWindSpeed").html(results.current.wind_kph + " km/h");
+		$(".cWindSpeed").html(results.current.wind_kph + " km/u");
 		$(".dAvgHum").html(results.forecast.forecastday[0].day.avghumidity + " %");
 		
 		//Day page: Weather info per hour.
@@ -37,7 +57,7 @@ $(document).ready(function(){
             tr.append("<td><img src='" + results.forecast.forecastday[0].hour[i].condition.icon + "' alt='"+ results.current.condition.text +"'></td>");
 			tr.append("<td>" + results.forecast.forecastday[0].hour[i].temp_c + " °C</td>");
 			tr.append("<td>" + results.forecast.forecastday[0].hour[i].humidity + " %</td>");
-			tr.append("<td>" + results.forecast.forecastday[0].hour[i].wind_kph + " km/h</td>");
+			tr.append("<td>" + results.forecast.forecastday[0].hour[i].wind_kph + " km/u</td>");
 
             $('#tDay').append(tr);
         }
@@ -49,7 +69,7 @@ $(document).ready(function(){
 		var wText = new Array(7);
 		var wIcon = new Array(7);
 		var frequency = {};
-		var max = condition = sunny = cloudy = rainFall = wImg = 0;
+		var max = sunny = cloudy = rainFall = wImg = 0;
 		var tResult, iResult;
 		
 		weekday[0] = "Zondag";
@@ -83,22 +103,22 @@ $(document).ready(function(){
             tr.append("<td><img src='" + results.forecast.forecastday[i].day.condition.icon + "' alt='Weer icoon'><br>" + results.forecast.forecastday[i].day.condition.text + "</td>");
 			tr.append("<td>" + results.forecast.forecastday[i].day.avgtemp_c + " °C</td>");
 			tr.append("<td>" + results.forecast.forecastday[i].day.avghumidity + " %</td>");
-			tr.append("<td>" + results.forecast.forecastday[i].day.maxwind_kph + " km/h</td>");
+			tr.append("<td>" + results.forecast.forecastday[i].day.maxwind_kph + " km/u</td>");
 
             $('#tWeek').append(tr);
 			day++;
         }
 		
 		if(sunny > 4){	//Calculates the weather condition for this week.
-			condition = "Zonnig";
+			condition = "zonnig";
 		}else if(sunny > 1 && cloudy > 1 && rainFall < 2){
-			condition = "Zonnig met af en toe bewolking";
+			condition = "zonnig met af en toe bewolking";
 		}else if(sunny < 2 && cloudy > 1 && rainFall < 2){
-			condition = "Bewolkt";
+			condition = "bewolkt";
 		}else if(rainFall > 3){
-			condition = "Neerslag";
+			condition = "neerslag";
 		}else{
-			condition = "Afwisselend";
+			condition = "afwisselend";
 		}
 		
 		for(var v in wText){	//Most common weather condition (text).
@@ -109,11 +129,11 @@ $(document).ready(function(){
 			}
 		}
 		if(max > 3){	// Weather condition is most common if most common > 3 else calculated weather condition (text).
-			$("#aText").html("Het weer van deze week is voornamelijk: " + tResult + "."); 
-		}else if(condition == "Afwisselend"){
-			$("#aText").html("Het weer van deze week is: Afwisselend.");
+			$("#aText").html("Het weer van deze week is voornamelijk " + tResult.toLowerCase() + "."); 
+		}else if(condition == "afwisselend"){
+			$("#aText").html("Het weer van deze week is afwisselend.");
 		}else{
-			$("#aText").html("Het weer van deze week is voornamelijk: " + condition + "."); 
+			$("#aText").html("Het weer van deze week is voornamelijk " + condition + "."); 
 		}
 		max = 0;
 		for(var v in wIcon){	//Most common weather condition (icon).
@@ -127,16 +147,16 @@ $(document).ready(function(){
 			$("#aIcon").html("<img src='" + iResult + "' alt='Weer icoon'>");
 		}else{
 			switch(condition){
-				case "Zonnig":
+				case "zonnig":
 					wImg =  113;
 					break;
-				case "Zonnig met af en toe bewolking":
+				case "zonnig met af en toe bewolking":
 					wImg =  116;
 					break;
-				case "Bewolkt":
+				case "bewolkt":
 					wImg =  122;
 					break;
-				case "Neerslag":
+				case "neerslag":
 					wImg =  308;
 					break;
 				default:
