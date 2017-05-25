@@ -16,7 +16,17 @@
       SMART-Wasknijper
     </div>
     <div class="ui-content" data-role="main">
-      <a href="#weatherDay"><h1>magic</h1></a>
+		<div id="test"></div>
+		<div class="dCond"></div>
+		<div class="dIcon"></div>
+		<div class="dAvgTemp"></div>
+		<div class="cWindDir"></div>
+		<div class="cWindSpeed"></div>
+		<div class="dAvgHum"></div>
+	
+	
+      <a href="#weatherDay"><h1>Dag</h1></a>
+	  <a href="#weatherWeek"><h1>Week</h1></a>
     </div>
     <div class="" data-role="footer">
       <h2>&copy; INF1A</h2>
@@ -27,15 +37,50 @@
       SMART-Wasknijper
     </div>
     <div class="ui-content" data-role="main">
-		<h1>Droogcijfer van vandaag:</h1>
-		<table> <!-- gets input from weather.js-->
-			<tr></tr>
+		<h1>Vandaag</h1>
+		<div class="dCond"></div>
+		<div class="dIcon"></div>
+		<div class="dAvgTemp"></div>
+		<div class="cWindDir"></div>
+		<div class="cWindSpeed"></div>
+		<div class="dAvgHum"></div>
+		<table id="tDay"> 
+			<tr>
+				<th>Tijd</th>
+				<th>Weer</th>
+				<th>Temp.</th>
+				<th>Humiditeit</th>
+				<th>Wind</th>
+			</tr>
 		</table>
     </div>
     <div class="" data-role="footer">
       &copy;INF1A
     </div>
   </div>
-  <script src="weather.js" type="text/javascript"></script>
+  <div class="" data-role="page" id="weatherWeek">
+	<div class="" data-role="header">
+      SMART-Wasknijper
+    </div>
+    <div class="ui-content" data-role="main">
+		<h1>Week overzicht</h1>
+		<div id="aText"></div>
+		<div id="aIcon"></div>
+		<table id="tWeek"> 
+			<tr>
+				<th>Dag</th>
+				<th>Weer</th>
+				<th>Temp.</th>
+				<th>Humiditeit</th>
+				<th>Wind</th>
+			</tr>
+		</table>
+		
+	</div>
+	<div class="" data-role="footer">
+      &copy;INF1A
+    </div>
+  </div>
+  <script src="js/weather.js" type="text/javascript"></script>
 </body>
 </html>
