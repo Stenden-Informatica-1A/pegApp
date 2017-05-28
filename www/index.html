@@ -63,6 +63,8 @@
 	</div>
     <div class="ui-content" data-role="main">
       <h1>insert settings here</h1>
+	  <p id="wasknijperNaam"></p>
+	  <h4 onclick="removeKnijper()">X</h4></div>
     </div>
   </div>
 
@@ -74,8 +76,10 @@
 		</div>
 		<div class="ui-content" data-role="main">
 		  <div style="display:none; margin:15px; " class="gevondenDevices">
-			<div onclick="addKnijper()"><h3>Wasknijper1</h3></div>
-			<div onclick="removeKnijper()"><h4>X</h4></div>
+			<div onclick="addKnijper()">
+				<input type="text" name="name" id="KnijperName" value="Knijper1" readonly />
+				<input type="hidden" name="key" id="KnijperID" value="01" />
+			</div>
 		  </div>
 		  <div class="center">
 			<div style="height:200px;">
@@ -90,7 +94,7 @@
   <script type="text/javascript" src="cordova.js"></script>
   <script src="jq/jquery-1.11.1.js"></script>
   <script src="jq/jquery.mobile-1.4.5.min.js"></script>
-  <script src="js/firstLoad.js"></script>
+  <script src="js/main.js"></script>
   <!--<script src="js/pageSwitcher.js"></script>-->
   <script src="js/weather.js" type="text/javascript"></script>
 </body>
