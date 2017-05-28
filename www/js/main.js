@@ -35,6 +35,24 @@ else{ //Terug sturen naar de pagina om je wasknijper toe te voegen.
 	window.location.href = "index.html#firstLoad";
 }
 
+$(document).on("backbutton", function (e){
+    if($.mobile.activePage.attr("id") == "main"){
+		navigator.notification.confirm("Are you sure you want to exit ?", alertexit, "Confirmation", "Yes,No"); 
+    }
+    else{
+      $.mobile.changePage("index.html", {
+		transition: "slidedown"
+	  });
+    }
+});
+
+
+function alertexit(button){
+	if(button=="1" || button==1){
+        navigator.app.exitApp();
+	}
+}
+
 
 //Zoeken naar wasknijpers in de omgeving
 function searchKnijper(){
@@ -54,8 +72,8 @@ function addKnijper() {
   localStorage.setItem('knijperName', document.getElementById('KnijperName').value);
   localStorage.setItem('knijperKey', document.getElementById('KnijperID').value);
     
-  alert("SMART-Knijper" + localStorage.getItem('knijperName') + "is toegevoegd!");
-  $.mobile.changePage("/", {
+  alert("SMART-Knijper" + localStorage.getItem('knijperName') + " is toegevoegd!");
+  $.mobile.changePage("index.html", {
 		transition: "slideup"
   });
 }
