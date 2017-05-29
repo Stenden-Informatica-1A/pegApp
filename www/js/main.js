@@ -101,7 +101,27 @@ $('#wasknijperNaam').text( localStorage.getItem('knijperName') );
 
 
 
+//Push notification test
+function push_test() {
+  if (!Notification) {
+    alert('Er kunnen geen notificaties worden verstuurd.'); 
+    return;
+  }
 
+  if (Notification.permission !== "granted"){
+    Notification.requestPermission();
+  }
+
+  var notification = new Notification('', {
+    icon: 'img/logo.png',
+    body: "SMART-Knijper!",
+	vibrate: 500,
+  });
+
+  notification.onclick = function () {
+    window.open("https://google.com/");      
+  };
+}
 
 
 
