@@ -13,6 +13,7 @@ $(document).ready(function(){
 	
 		//Homepage: weather info for today.
 		
+		var location = results.location.name;
 		var condition = results.forecast.forecastday[0].day.condition.code;
 		var precip = results.forecast.forecastday[0].day.totalprecip_mm;
 		var aHumid = results.forecast.forecastday[0].day.avghumidity;
@@ -36,6 +37,7 @@ $(document).ready(function(){
 			condition = "Pas op, neerslag of harde wind verwacht!";
 		}
 		
+		$("#today").html(location + " vandaag");
 		$(".dCond").html("Vandaag is het " + results.forecast.forecastday[0].day.condition.text.toLowerCase() + precip + "<br><br><b>" + condition + "</b>");
 		$(".dIcon").html("<img src='" + results.forecast.forecastday[0].day.condition.icon + "' alt='Weer icoon'>");
 		$(".dAvgTemp").html(results.forecast.forecastday[0].day.avgtemp_c + " °C");
@@ -74,6 +76,8 @@ $(document).ready(function(){
 		var frequency = {};
 		var max = sunny = cloudy = rainFall = wImg = 0;
 		var tResult, iResult;
+		
+		$("#week").html(location + " week overzicht");
 		
 		weekday[0] = "Zondag";
 		weekday[1] = "Maandag";
