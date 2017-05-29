@@ -54,25 +54,12 @@ function alertexit(button){
 }
 
 
-//Zoeken naar wasknijpers in de omgeving
-function searchKnijper(){
-	$(".fa-refresh").css("display","block")
-	.delay(3000)
-	.queue( function (next) {
-		$(".gevondenDevices").css("display", "block")
-		.queue( function (next) {
-			$(".fa-refresh").css("display","none");
-		})
-	});
-}
-
-
 // Wasknijper toevoegen
 function addKnijper() {
   localStorage.setItem('knijperName', document.getElementById('KnijperName').value);
   localStorage.setItem('knijperKey', document.getElementById('KnijperID').value);
     
-  alert("SMART-Knijper" + localStorage.getItem('knijperName') + " is toegevoegd!");
+  alert("SMART-Knijper " + localStorage.getItem('knijperName') + " is toegevoegd!");
   $.mobile.changePage("index.html", {
 		transition: "slideup"
   });
@@ -100,28 +87,6 @@ $('#wasknijperNaam').text( localStorage.getItem('knijperName') );
 
 
 
-
-//Push notification test
-function push_test() {
-  if (!Notification) {
-    alert('Er kunnen geen notificaties worden verstuurd.'); 
-    return;
-  }
-
-  if (Notification.permission !== "granted"){
-    Notification.requestPermission();
-  }
-
-  var notification = new Notification('', {
-    icon: 'img/logo.png',
-    body: "SMART-Knijper!",
-	vibrate: 500,
-  });
-
-  notification.onclick = function () {
-    window.open("https://google.com/");      
-  };
-}
 
 
 

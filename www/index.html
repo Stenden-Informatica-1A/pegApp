@@ -61,13 +61,33 @@
 	  <a href="#main"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
 
 	</div>
-    <div class="ui-content" data-role="main">
-      <h1>insert settings here</h1>
-	  <p id="wasknijperNaam"></p>
-	  <h4 onclick="removeKnijper()">X</h4></div>
-	  <button onclick="push_test()">
-		Push Notification!
-	  </button>
+    <div class="ui-content" data-role="main" style="margin:15px;">
+		<h1>Instellingen</h1>
+		<div>
+		<div class="ui-field-contain">
+			<label for="flip-6">Notificaties ontvangen</label>
+			<select name="flip-6" id="flip-6" data-role="flipswitch">
+				<option value="off">Uit</option>
+				<option value="on">Aan</option>
+			</select>
+		</div>
+		<div class="ui-field-contain">
+			<label for="flip-6">Dynamische achtergronden</label>
+			<select name="flip-6" id="flip-6" data-role="flipswitch">
+				<option value="off">Uit</option>
+				<option value="on">Aan</option>
+			</select>
+		</div>
+		<fieldset data-role="controlgroup" data-type="horizontal">
+			<legend>Eenheden</legend>
+				<input type="radio" name="radio-choice" id="radio-choice-1" value="choice-1" checked="checked" />
+				<label for="radio-choice-1">Metrisch</label>
+
+				<input type="radio" name="radio-choice" id="radio-choice-2" value="choice-2"  />
+				<label for="radio-choice-2">Imperiaal</label>
+		</fieldset>
+		<hr style="margin:10px auto;" />
+		<p style="text-align:center; margin-top:25px;" onclick="removeKnijper()" data-role="button"><i class="fa fa-trash" aria-hidden="true"></i> Reset uw SMART-Knijper</p>
     </div>
   </div>
 
@@ -78,9 +98,9 @@
 		  <h1>Zoek uw SMART-Knijper</h1>
 		</div>
 		<div class="ui-content" data-role="main">
-		  <div style="display:none; margin:15px; " class="gevondenDevices">
-			<div onclick="addKnijper()">
-				<input type="text" name="name" id="KnijperName" value="Knijper1" readonly />
+		  <div style="margin:15px; " class="gevondenDevices">
+			<div >
+				<input type="text" name="name" id="KnijperName" />
 				<input type="hidden" name="key" id="KnijperID" value="01" />
 			</div>
 		  </div>
@@ -88,7 +108,7 @@
 			<div style="height:200px;">
 			  <i style="display:none; margin:0 auto;" class="fa fa-refresh fa-spin fa-fw"></i>
 			</div>
-			<button onclick="searchKnijper()" class="ui-btn">Zoeken</button>
+			<button onclick="addKnijper()" class="ui-btn">Toevoegen</button>
 		  </div>
 		</div>
     </div>
