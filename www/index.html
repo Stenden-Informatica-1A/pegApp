@@ -63,31 +63,32 @@
 	</div>
     <div class="ui-content" data-role="main" style="margin:15px;">
 		<h1>Instellingen</h1>
-		<div>
-		<div class="ui-field-contain">
-			<label for="flip-6">Notificaties ontvangen</label>
-			<select name="flip-6" id="flip-6" data-role="flipswitch">
-				<option value="off">Uit</option>
-				<option value="on">Aan</option>
-			</select>
-		</div>
-		<div class="ui-field-contain">
-			<label for="flip-6">Dynamische achtergronden</label>
-			<select name="flip-6" id="flip-6" data-role="flipswitch">
-				<option value="off">Uit</option>
-				<option value="on">Aan</option>
-			</select>
-		</div>
-		<fieldset data-role="controlgroup" data-type="horizontal">
-			<legend>Eenheden</legend>
-				<input type="radio" name="radio-choice" id="radio-choice-1" value="choice-1" checked="checked" />
-				<label for="radio-choice-1">Metrisch</label>
+		<form id="settingForm">
+			<div class="ui-field-contain">
+				<label for="notificaties">Notificaties ontvangen</label>
+				<select name="notificaties" id="notificaties" data-role="flipswitch" onchange="changeNoti();">
+					<option value="off">Uit</option>
+					<option value="on">Aan</option>
+				</select>
+			</div>
+			<div class="ui-field-contain">
+				<label for="dynamisch">Dynamische achtergronden</label>
+				<select name="dynamisch" id="dynamisch" data-role="flipswitch" onchange="changeDyna();">
+					<option value="off">Uit</option>
+					<option value="on">Aan</option>
+				</select>
+			</div>
+			<fieldset data-role="controlgroup" data-type="horizontal">
+				<legend>Eenheden</legend>
+					<input type="radio" name="eenheid" id="metrisch" value="metrisch" onclick="changeEenheid()" />
+					<label for="metrisch">Metrisch</label>
 
-				<input type="radio" name="radio-choice" id="radio-choice-2" value="choice-2"  />
-				<label for="radio-choice-2">Imperiaal</label>
-		</fieldset>
+					<input type="radio" name="eenheid" id="imperiaal" value="imperiaal" onclick="changeEenheid()" />
+					<label for="imperiaal">Imperiaal</label>
+			</fieldset>
+		</form>
 		<hr style="margin:10px auto;" />
-		<p style="text-align:center; margin-top:25px;" onclick="removeKnijper()" data-role="button"><i class="fa fa-trash" aria-hidden="true"></i> Reset uw SMART-Knijper</p>
+		<button style="text-align:center; margin-top:25px;" onclick="removeKnijper()" data-role="button"><i class="fa fa-trash" aria-hidden="true"></i> Reset uw SMART-Knijper</button>
     </div>
   </div>
 

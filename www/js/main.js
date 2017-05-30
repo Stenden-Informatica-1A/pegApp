@@ -86,22 +86,48 @@ function removeKnijper(){
 $('#wasknijperNaam').text( localStorage.getItem('knijperName') );
 
 
+//Zet instellingen juist neer
+//Notificaties
+if( !localStorage.getItem('notificaties') ){
+	localStorage.setItem('notificaties', "off");
+}
+else{
+	document.getElementById('notificaties').value = localStorage.getItem('notificaties');
+}
+function changeNoti(){
+	localStorage.setItem('notificaties', document.getElementById('notificaties').value );
+}
 
+//Dynamische achtergronden
+if( !localStorage.getItem('dynamisch') ){
+	localStorage.setItem('dynamisch', "off");
+}
+else{
+	document.getElementById('dynamisch').value = localStorage.getItem('dynamisch');
+}
+function changeDyna(){
+	localStorage.setItem('dynamisch', document.getElementById('dynamisch').value );
+}
 
+//Eenheden
+if( !localStorage.getItem('eenheid') ){
+	localStorage.setItem('eenheid', "metrisch");
+}
+else if( localStorage.getItem('eenheid') == "metrisch" ){
+    document.getElementById("metrisch").checked = true;
+}
+else{
+    document.getElementById("imperiaal").checked = true;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+function changeEenheid(){
+	if( document.getElementById("metrisch").checked == true ){
+		localStorage.setItem('eenheid', "metrisch");
+	}
+	else{
+		localStorage.setItem('eenheid', "imperiaal");
+	}
+}
 
 
 
