@@ -150,7 +150,7 @@ $(document).ready(function(){
 				}
 			}
 			if(max > 3){	// Weather condition is most common if most common > 3, else calculated weather condition (icon).
-				$("#aIcon").html("<img src='" + iResult.substring(30) + "' alt='Weer icoon'>");
+				$("#aIcon").html("<img src='img/" + iResult.substring(30) + "' alt='Weer icoon'>");
 			}else{
 				switch(condition){
 					case "zonnig":
