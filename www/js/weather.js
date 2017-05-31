@@ -34,8 +34,8 @@ $(document).ready(function(){
 			}
 			
 			$("#today").html(location + " vandaag");
-			$(".dCond").html("Het weer van vandaag: " + results.forecast.forecastday[0].day.condition.text  + "<br><br><b>" + condition + "</b>");
-			$(".dIcon").html("<img src='" + results.forecast.forecastday[0].day.condition.icon + "' alt='Weer icoon'>");
+			$(".dCond").html("Het weer van vandaag: " + results.forecast.forecastday[0].day.condition.text  + ".<br><br><b>" + condition + "</b>");
+			$(".dIcon").html("<img src='img/" + results.forecast.forecastday[0].day.condition.icon.substring(30) + "' alt='Weer icoon'>");
 			$(".dAvgTemp").html(results.forecast.forecastday[0].day.avgtemp_c + " °C");
 			$(".cWindDir").html(results.current.wind_dir);
 			$(".cWindSpeed").html(results.current.wind_kph + " km/u");
@@ -55,7 +55,7 @@ $(document).ready(function(){
 				}
 				tr = $('<tr/>');
 				tr.append("<td>" + hour + ":00</td>");
-				tr.append("<td><img src='" + results.forecast.forecastday[0].hour[i].condition.icon + "' alt='"+ results.current.condition.text +"'></td>");
+				tr.append("<td><img src='img/" + results.forecast.forecastday[0].hour[i].condition.icon.substring(30) + "' alt='"+ results.current.condition.text +"'></td>");
 				tr.append("<td>" + results.forecast.forecastday[0].hour[i].temp_c + " °C</td>");
 				tr.append("<td>" + results.forecast.forecastday[0].hour[i].humidity + " %</td>");
 				tr.append("<td>" + results.forecast.forecastday[0].hour[i].wind_kph + " km/u</td>");
@@ -83,10 +83,13 @@ $(document).ready(function(){
 			weekday[5] = "Vrijdag";
 			weekday[6] = "Zaterdag";
 			
-			for (i = 0; i < results.forecast.forecastday.length; i++) { 	//filling the 'week weather table' and arrays for the general weather condition this week.
+			for (i = 0; i < results.forecast.forecastday.length; i++) {		//filling the 'week weather table' and arrays for the general weather condition this week.
+				
 				wText.push(results.forecast.forecastday[i].day.condition.text);
 				wIcon.push(results.forecast.forecastday[i].day.condition.icon);
+				
 				condition = results.forecast.forecastday[i].day.condition.code;
+				
 				if(condition == 1000){
 					sunny++;
 				}else if(condition <= 1030){
@@ -103,7 +106,7 @@ $(document).ready(function(){
 				
 				tr = $('<tr/>');
 				tr.append("<td>" + weekday[day] + "</td>");
-				tr.append("<td><img src='" + results.forecast.forecastday[i].day.condition.icon + "' alt='Weer icoon'><br>" + results.forecast.forecastday[i].day.condition.text + "</td>");
+				tr.append("<td><img src='img/" + results.forecast.forecastday[i].day.condition.icon.substring(30) + "' alt='Weer icoon'><br>" + results.forecast.forecastday[i].day.condition.text + "</td>");
 				tr.append("<td>" + results.forecast.forecastday[i].day.avgtemp_c + " °C</td>");
 				tr.append("<td>" + results.forecast.forecastday[i].day.avghumidity + " %</td>");
 				tr.append("<td>" + results.forecast.forecastday[i].day.maxwind_kph + " km/u</td>");
@@ -132,11 +135,11 @@ $(document).ready(function(){
 				}
 			}
 			if(max > 3){	// Weather condition is most common if most common > 3 else calculated weather condition (text).
-				$("#aText").html("Het weer van deze week is voornamelijk " + tResult.toLowerCase() + "."); 
+				$("#aText").html("Het weer van deze week: " + tResult + "."); 
 			}else if(condition == "afwisselend"){
-				$("#aText").html("Het weer van deze week is afwisselend.");
+				$("#aText").html("Het weer van deze week: Afwisselend.");
 			}else{
-				$("#aText").html("Het weer van deze week is voornamelijk " + condition + "."); 
+				$("#aText").html("Het weer van deze week: " + condition + "."); 
 			}
 			max = 0;
 			for(var v in wIcon){	//Most common weather condition (icon).
@@ -147,7 +150,7 @@ $(document).ready(function(){
 				}
 			}
 			if(max > 3){	// Weather condition is most common if most common > 3, else calculated weather condition (icon).
-				$("#aIcon").html("<img src='" + iResult + "' alt='Weer icoon'>");
+				$("#aIcon").html("<img src='" + iResult.substring(30) + "' alt='Weer icoon'>");
 			}else{
 				switch(condition){
 					case "zonnig":
@@ -165,7 +168,7 @@ $(document).ready(function(){
 					default:
 						wImg = 176;
 				}
-				$("#aIcon").html("<img src='//cdn.apixu.com/weather/64x64/day/" + wImg +".png' alt='Weer icoon'>");
+				$("#aIcon").html("<img src='img/day/" + wImg +".png' alt='Weer icoon'>");
 			}
 		});
 	}
