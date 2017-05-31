@@ -1,6 +1,6 @@
 var page;
 
-if( localStorage.getItem('knijperName') && localStorage.getItem('knijperKey') ){
+if( localStorage.getItem('knijperName') && localStorage.getItem('knijperKey') && localStorage.getItem('knijperKey') == "01" ){
 	$(document).on("pagechange", function (e, data) {
 		page = data.toPage[0].id;
 	});
