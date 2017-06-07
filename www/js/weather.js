@@ -116,15 +116,15 @@ $(document).ready(function(){
 			}
 			
 			if(sunny > 4){	//Calculates the weather condition for this week.
-				condition = "zonnig";
+				condition = "Zonnig";
 			}else if(sunny > 1 && cloudy > 1 && rainFall < 2){
-				condition = "zonnig met af en toe bewolking";
+				condition = "Zonnig met af en toe bewolking";
 			}else if(sunny < 2 && cloudy > 1 && rainFall < 2){
-				condition = "bewolkt";
+				condition = "Bewolkt";
 			}else if(rainFall > 3){
-				condition = "neerslag";
+				condition = "Neerslag";
 			}else{
-				condition = "afwisselend";
+				condition = "Afwisselend";
 			}
 			
 			for(var v in wText){	//Most common weather condition (text).
@@ -153,16 +153,16 @@ $(document).ready(function(){
 				$("#aIcon").html("<img src='img/" + iResult.substring(30) + "' alt='Weer icoon'>");
 			}else{
 				switch(condition){
-					case "zonnig":
+					case "Zonnig":
 						wImg =  113;
 						break;
-					case "zonnig met af en toe bewolking":
+					case "Zonnig met af en toe bewolking":
 						wImg =  116;
 						break;
-					case "bewolkt":
+					case "Bewolkt":
 						wImg =  122;
 						break;
-					case "neerslag":
+					case "Neerslag":
 						wImg =  308;
 						break;
 					default:
