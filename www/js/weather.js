@@ -27,8 +27,10 @@ $(document).ready(function(){
 				condition = "Dit is een prima dag om je was te drogen.";
 			}else if(condition <= 1030 && mWindS < 29){
 				condition = "Het drogen van je was kan even duren vandaag.";
-			}else if(mWindS > 28){
+			}else if(condition <= 1030 && mWindS > 28){
 				condition = "Pas op, harde wind verwacht!";
+			}else if(mWindS > 28){
+				condition = "Pas op, harde wind en neerslag verwacht!";
 			}else{
 				condition = "Pas op, neerslag verwacht!";
 			}
