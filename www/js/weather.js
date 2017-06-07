@@ -170,6 +170,14 @@ $(document).ready(function(){
 				}
 				$("#aIcon").html("<img src='img/day/" + wImg +".png' alt='Weer icoon'>");
 			}
+			
+			//Will it rain the next hour
+			
+			date = new Date();
+			var hour = date.getHours()+1;
+			
+			var warning = results.forecast.forecastday[0].hour[hour].will_it_rain;
+			
 		});
 	}
 	function onError() {
