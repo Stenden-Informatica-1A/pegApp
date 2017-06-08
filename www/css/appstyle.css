@@ -84,6 +84,18 @@ border:3px solid #FFFFFF !important;
     background-color:rgba(0, 0, 0, 0.3);
 	padding-bottom: 15px;
 }
+.arrow-color{
+	color:#333333 !important;
+}
+.ui-page-theme-a .ui-btn:focus{
+	box-shadow: 0 0 12px #c99400;
+}
+.ui-page-theme-a .ui-btn.ui-btn-active,
+.ui-field-contain .ui-flipswitch.ui-flipswitch-active{
+	background-color:#c99400;
+	border-color:#c99400;
+}
+
 /*weather summary*/
 /*------------*/
 
