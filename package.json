@@ -1,0 +1,21 @@
+{
+    "name": "com.phonegap.jq",
+    "version": "1.0.0",
+    "displayName": "JQ",
+    "cordova": {
+        "platforms": [
+            "android"
+        ],
+        "plugins": {
+            "cordova-plugin-mqtt": {},
+            "de.appplant.cordova.plugin.local-notification": {}
+        }
+    },
+    "dependencies": {
+        "cordova-android": "~6.2.3",
+        "cordova-plugin-app-event": "file:node_modules\\cordova-plugin-app-event",
+        "cordova-plugin-device": "file:node_modules\\cordova-plugin-device",
+        "cordova-plugin-mqtt": "^0.3.8",
+        "de.appplant.cordova.plugin.local-notification": "git+https://github.com/katzer/cordova-plugin-local-notifications.git"
+    }
+}
