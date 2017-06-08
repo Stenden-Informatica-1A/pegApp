@@ -5,7 +5,7 @@
   <link rel="stylesheet" href="css/fa.min.css">
   <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
   <link rel="stylesheet" href="jq/jquery.mobile-1.4.5.css" />
-    <link rel="stylesheet" href="css/appstyle.css">
+  <link rel="stylesheet" href="css/appstyle.css">
 
 
   <title>Smart wasknijper</title>
@@ -159,7 +159,6 @@
   </div>
 </div>
 
-<!-- Eerste pagina voor instellen vd wasknijper -->
 
 <!-- Andere pagina's volgen dit format -->
 <div class="" data-role="page" id="weatherWeek">
@@ -273,14 +272,15 @@
 </div>
 
 
-<!-- Andere pagina's volgen dit format -->
+<!-- Eerste pagina voor instellen vd wasknijper -->
 <div class="" data-role="page" id="settings">
-  <div class="contentBlock">
-    <a href="#main"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
-
-  </div>
-  <div class="ui-content" data-role="main" style="margin:15px;">
-    <h1>Instellingen</h1>
+  <div class="ui-content" data-role="main">
+	  <div class="contentBlock" style="position:relative;">
+        <h1 style="">Instellingen</h1>
+		<div style="position:absolute; right:10px; top:0px; font-size: 32px;">
+			<a href="#main"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
+		</div>
+	  </div>
     <form id="settingForm">
       <div class="ui-field-contain">
         <label for="notificaties">Notificaties ontvangen</label>

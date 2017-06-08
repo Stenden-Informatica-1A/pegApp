@@ -72,27 +72,30 @@ border:3px solid #FFFFFF !important;
   float:right;
   margin-right:3vw;
   margin-top:2px;
-  height:50px;
-  width:50px;
+  height:45px;
+  width:45px;
 }
 #header{
   height:8vh;
   min-height:50px;
+  padding:3px;
 }
 #main{
     background-color:rgba(0, 0, 0, 0.3);
+	padding-bottom: 15px;
 }
 /*weather summary*/
 /*------------*/
+
 #weather, #weatherDay, #weatherWeek, #main{
   border-top:3px solid #ffbb00;
   border-bottom:3px solid #ffbb00;
   width:calc(100vw -6px);
   background-color:rgba(0, 0, 0, 0.3);
-
-
 }
+
 .heroBox{
+	padding:10px;
   margin-bottom:30px;
 }
 
@@ -328,6 +331,7 @@ input:checked + .toggleButton:before {
  -ms-transform: translateX(26px);
  transform: translateX(26px);
 }
+
 
 /* text input */
 .setting input[type=text]{
