@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <link rel="stylesheet" href="css/fa.min.css">
   <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
-  <link rel="stylesheet" href="jq/jquery.mobile-1.4.5.min.css" />
-  <link rel="stylesheet" href="css/appstyle.css">
+  <link rel="stylesheet" href="jq/jquery.mobile-1.4.5.css" />
+    <link rel="stylesheet" href="css/appstyle.css">
 
 
   <title>Smart wasknijper</title>
@@ -16,11 +16,11 @@
     <div id="header" class="clearfix">
       <img id ="logo" src="img/logo.png" width="50" height="50" alt="logo" />
       <div id=title >
-        <h1>Weer</h1>
+        <h1>Uw wasknijper</h1>
       </div>
       <a href="#settings"><img src="img/settings.png" alt="settings" id="settingsButton"></a>
     </div>
-    <div id="weather" class="clearfix">
+    <div id="weather" class="clearfix heroBox">
       <div id="weatherDescription">
         <h2>Zonnig</h2>
         <p>
@@ -52,9 +52,7 @@
         </div>
       </div>
     </div>
-    <div id="circle">
-      <meter value="10" min="0" max="100"></meter>
-    </div>
+    <canvas id="my_canvas" height="500px" width="500px"style="border:1px dashed #CCC;"></canvas>
     <div id="pageMarker">
       <div class="pageSelector pageSelected"></div>
       <div class="pageSelector"></div>
@@ -69,10 +67,10 @@
       <div id=title >
         <h1>Weer</h1>
       </div>
-      <img src="img/settings.png" alt="settings" id="settingsButton">
+      <a href="#settings"><img src="img/settings.png" alt="settings" id="settingsButton"></a>
     </div>
     <div id="content">
-      <div id="weatherDay" class="clearfix">
+      <div id="weatherDay" class="clearfix heroBox">
         <div id="weatherDescription">
           <h2>Vandaag</h2>
           <p>
@@ -165,17 +163,15 @@
 
 <!-- Andere pagina's volgen dit format -->
 <div class="" data-role="page" id="weatherWeek">
-  <div class="ui-content" data-role="main">
-    <div id="header" class="clearfix">
-      <img id ="logo" src="img/logo.png" width="50" height="50" alt="logo" />
-      <div id=title >
-        <h1>Weer</h1>
-      </div>
-      <img src="img/settings.png" alt="settings" id="settingsButton">
+  <div id="header" class="clearfix">
+    <img id ="logo" src="img/logo.png" width="50" height="50" alt="logo" />
+    <div id=title >
+      <h1>Weer week</h1>
     </div>
+    <a href="#settings"><img src="img/settings.png" alt="settings" id="settingsButton"></a>
   </div>
   <div id="content">
-    <div id="weatherWeek" class="clearfix">
+    <div id="weatherWeek" class="clearfix heroBox">
       <div id="weatherDescription">
         <h2>Deze week</h2>
         <p>
@@ -340,5 +336,36 @@
 <script src="jq/jquery-1.11.1.js"></script>
 <script src="jq/jquery.mobile-1.4.5.min.js"></script>
 <script src="js/pageSwitcher.js"></script>
+<script>
+var ctx = document.getElementById('my_canvas').getContext('2d');
+var al = 0;
+var start = 4.72;
+var cw = ctx.canvas.width;
+var ch = ctx.canvas.height;
+var diff;
+function progressSim(){
+	diff = ((al / 100) * Math.PI*2*10).toFixed(2);
+  ctx.font="30px Verdana";
+	ctx.clearRect(0, 0, cw, ch);
+	ctx.lineWidth = 10;
+	ctx.fillStyle = '#fb0';
+	ctx.strokeStyle = "#fb0";
+	ctx.textAlign = 'center';
+	ctx.fillText("Uw was is: "+al+"% droog", cw*.5, ch*.45+2, cw);
+	ctx.beginPath();
+	ctx.arc(cw/2, cw/2, 200, start, diff/10+start, false);
+	ctx.stroke();
+  ctx.beginPath();
+  ctx.lineWidth = 2;
+  ctx.moveTo((cw/2)-200,cw/2);
+  ctx.lineTo((cw/2)+200,cw/2);
+  ctx.stroke();
+	if(al >= 100){
+		clearTimeout(sim);
+	    // Add message code!
+	}
+}
+var sim = setInterval(progressSim, 50);
+</script>
 </body>
 </html>

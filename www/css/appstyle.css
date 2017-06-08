@@ -18,7 +18,7 @@ table{
 body{
   background-color:#e6ecf7;
   font-family: 'Montserrat', sans-serif;
-  color:white;
+  color:white !important;
 }
 
 h1, h2, h3, h4, h5, h6{
@@ -51,14 +51,26 @@ h2{
   background-color:#ffbb00;
   margin-top:0.65vh;
   height:calc(8vh - 1.2vh);
-  width:30vw;
   min-height:40px;
-  min-width:150px;
+  min-width: 50vw;
   margin-left:-40px;
+}
+#my_canvas{
+  padding-left: 0;
+    padding-right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    width: 800px;
+  width: 80vw;
+  height:80vw;
+background-color:rgba(0, 0, 0, 0.3);
+border:3px solid #FFFFFF !important;
+
 }
 #settingsButton{
   float:right;
-  margin-right:1vw;
+  margin-right:3vw;
   margin-top:2px;
   height:50px;
   width:50px;
@@ -72,14 +84,16 @@ h2{
 }
 /*weather summary*/
 /*------------*/
-#weather, #weatherDay, #weatherWeek{
-  padding:10px;
-  margin-top:1vh;
-  margin-left:10vw;
-  border:3px solid #ffbb00;
-  border-right:none;
-  width:calc(90vw -2px);
+#weather, #weatherDay, #weatherWeek, #main{
+  border-top:3px solid #ffbb00;
+  border-bottom:3px solid #ffbb00;
+  width:calc(100vw -6px);
   background-color:rgba(0, 0, 0, 0.3);
+
+
+}
+.heroBox{
+  margin-bottom:30px;
 }
 
 #weather:active{
@@ -133,9 +147,7 @@ h2{
 
 #dayOverview table{
   width:100%;
-  border-left:3px solid #ffbb00;
-  border-right:3px solid #ffbb00;
-  border-bottom: 3px solid #ffbb00;
+  border:3px solid #ffbb00;
 }
 #dayOverview td, #dayOverview th{
   width:25%;
