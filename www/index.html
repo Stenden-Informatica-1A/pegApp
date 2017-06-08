@@ -5,68 +5,340 @@
   <link rel="stylesheet" href="css/fa.min.css">
   <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
   <link rel="stylesheet" href="jq/jquery.mobile-1.4.5.min.css" />
-  <link rel="stylesheet" href="css/master.css">
+  <link rel="stylesheet" href="css/appstyle.css">
+
 
   <title>Smart wasknijper</title>
 </head>
 
 <body>
-
   <div class="" data-role="page" id="main">
-    <div class="head" data-role="header">
+    <div id="header" class="clearfix">
+      <img id ="logo" src="img/logo.png" width="50" height="50" alt="logo" />
+      <div id=title >
+        <h1>Weer</h1>
+      </div>
+      <a href="#settings"><img src="img/settings.png" alt="settings" id="settingsButton"></a>
     </div>
-    <div class="ui-content" data-role="main">
-      <div class="quickinfo contentBlock">
-        <p><i class="fa fa-sun-o" aria-hidden="true"></i> 21:30
-        <i class="fa fa-flag-o" aria-hidden="true"></i> NO 3</p>
-        <div class="rightSide"> <a href="#settings"><i class="fa fa-cog" aria-hidden="true"></i></a></div>
+    <div id="weather" class="clearfix">
+      <div id="weatherDescription">
+        <h2>Zonnig</h2>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          Donec nec leo eget ante aliquet porttitor sit amet ac lacus.
+          Duis accumsan imperdiet neque.
+        </p>
       </div>
-      <div class="floatclear">
-
+      <img class="weatherIcon" src="img/sunny.png" alt="weather" />
+      <div id="weatherStats">
+        <hr>
+        <div class="wstat">
+          <img class="statIcon" src="img/temp.png" alt="temp" />
+          <div class="wstatVal">
+            10
+          </div>
+        </div>
+        <div class="wstat">
+          <img class="statIcon" src="img/windicon.png" alt="temp" />
+          <div class="wstatVal">
+            10
+          </div>
+        </div>
+        <div class="wstat">
+          <img class="statIcon" src="img/humidity.png" alt="temp" />
+          <div class="wstatVal">
+            10
+          </div>
+        </div>
       </div>
-      <div class="report contentBlock">
-        Verwachting: <b>Mooi weer</b><br>
-        Beste droogtijd is tussen: 12:00 en 14:00
-      </div>
-      <div class="circleMeter">
-
-      </div>
-      <!-- Insert content here -->
+    </div>
+    <div id="circle">
+      <meter value="10" min="0" max="100"></meter>
+    </div>
+    <div id="pageMarker">
+      <div class="pageSelector pageSelected"></div>
+      <div class="pageSelector"></div>
+      <div class="pageSelector"></div>
     </div>
   </div>
-
 
   <!-- Andere pagina's volgen dit format -->
   <div class="" data-role="page" id="weatherDay">
-    <div class="ui-content" data-role="main">
-      <h1>Daily weather report</h1>
+    <div id="header" class="clearfix">
+      <img id ="logo" src="img/logo.png" width="50" height="50" alt="logo" />
+      <div id=title >
+        <h1>Weer</h1>
+      </div>
+      <img src="img/settings.png" alt="settings" id="settingsButton">
+    </div>
+    <div id="content">
+      <div id="weatherDay" class="clearfix">
+        <div id="weatherDescription">
+          <h2>Vandaag</h2>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Donec nec leo eget ante aliquet porttitor sit amet ac lacus.
+            Duis accumsan imperdiet neque.
+          </p>
+        </div>
+        <img class="weatherIcon" src="img/sunny.png" alt="weather" />
+        <div id="weatherStats">
+          <hr>
+          <div class="wstat">
+            <img class="statIcon" src="img/temp.png" alt="temp" />
+            <div class="wstatVal">
+              10
+            </div>
+          </div>
+          <div class="wstat">
+            <img class="statIcon" src="img/windicon.png" alt="temp" />
+            <div class="wstatVal">
+              10
+            </div>
+          </div>
+          <div class="wstat">
+            <img class="statIcon" src="img/humidity.png" alt="temp" />
+            <div class="wstatVal">
+              10
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="dayOverview">
+        <table>
+          <tr>
+            <th>Uur</th>
+            <th>Weer</th>
+            <th>Temp</th>
+            <th>Wind</th>
+          </tr>
+          <tr>
+            <td>09:00</td>
+            <td>zon</td>
+            <td>10</td>
+            <td>10</td>
+          </tr>
+          <tr>
+            <td>09:00</td>
+            <td>zon</td>
+            <td>10</td>
+            <td>10</td>
+          </tr>
+          <tr>
+            <td>09:00</td>
+            <td>zon</td>
+            <td>10</td>
+            <td>10</td>
+          </tr>
+          <tr>
+            <td>09:00</td>
+            <td>zon</td>
+            <td>10</td>
+            <td>10</td>
+          </tr>
+          <tr>
+            <td>09:00</td>
+            <td>zon</td>
+            <td>10</td>
+            <td>10</td>
+          </tr>
+          <tr>
+            <td>09:00</td>
+            <td>zon</td>
+            <td>10</td>
+            <td>10</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div id="footer">
+      <div id="pageMarker">
+        <div class="pageSelector"></div>
+        <div class="pageSelector pageSelected"></div>
+        <div class="pageSelector"></div>
+      </div>
     </div>
   </div>
-
-
-  <!-- Andere pagina's volgen dit format -->
-  <div class="" data-role="page" id="weatherWeek">
-    <div class="ui-content" data-role="main">
-      <h1>Weekly weather report</h1>
-    </div>
-  </div>
-
-
-  <!-- Andere pagina's volgen dit format -->
-  <div class="" data-role="page" id="settings">
-<div class="contentBlock">
-  <a href="#main"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
-
 </div>
-    <div class="ui-content" data-role="main">
-      <h1>insert settings here</h1>
+
+<!-- Eerste pagina voor instellen vd wasknijper -->
+
+<!-- Andere pagina's volgen dit format -->
+<div class="" data-role="page" id="weatherWeek">
+  <div class="ui-content" data-role="main">
+    <div id="header" class="clearfix">
+      <img id ="logo" src="img/logo.png" width="50" height="50" alt="logo" />
+      <div id=title >
+        <h1>Weer</h1>
+      </div>
+      <img src="img/settings.png" alt="settings" id="settingsButton">
     </div>
   </div>
+  <div id="content">
+    <div id="weatherWeek" class="clearfix">
+      <div id="weatherDescription">
+        <h2>Deze week</h2>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          Donec nec leo eget ante aliquet porttitor sit amet ac lacus.
+          Duis accumsan imperdiet neque.
+        </p>
+      </div>
+    </div>
+    <div id="weekOverview">
+      <div class="week">
+        <h2>Maandag</h2>
+        <p>09-09-2019</p>
+        <img class="weatherIcon weekIcon" src="img/sunny.png" alt="weather" />
+        <hr>
+        <div id="weatherStats">
+          <div class="wstat">
+            <img class="statIcon" src="img/temp.png" alt="temp" />
+            <div class="wstatVal">
+              10
+            </div>
+          </div>
+          <div class="wstat">
+            <img class="statIcon" src="img/windicon.png" alt="temp" />
+            <div class="wstatVal">
+              10
+            </div>
+          </div>
+          <div class="wstat">
+            <img class="statIcon" src="img/humidity.png" alt="temp" />
+            <div class="wstatVal">
+              10
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="week">
+        <h2>Maandag</h2>
+        <p>09-09-2019</p>
+        <img class="weatherIcon weekIcon" src="img/sunny.png" alt="weather" />
+        <hr>
+        <div id="weatherStats">
+          <div class="wstat">
+            <img class="statIcon" src="img/temp.png" alt="temp" />
+            <div class="wstatVal">
+              10
+            </div>
+          </div>
+          <div class="wstat">
+            <img class="statIcon" src="img/windicon.png" alt="temp" />
+            <div class="wstatVal">
+              10
+            </div>
+          </div>
+          <div class="wstat">
+            <img class="statIcon" src="img/humidity.png" alt="temp" />
+            <div class="wstatVal">
+              10
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="week">
+        <h2>Maandag</h2>
+        <p>09-09-2019</p>
+        <img class="weatherIcon weekIcon" src="img/sunny.png" alt="weather" />
+        <hr>
+        <div id="weatherStats">
+          <div class="wstat">
+            <img class="statIcon" src="img/temp.png" alt="temp" />
+            <div class="wstatVal">
+              10
+            </div>
+          </div>
+          <div class="wstat">
+            <img class="statIcon" src="img/windicon.png" alt="temp" />
+            <div class="wstatVal">
+              10
+            </div>
+          </div>
+          <div class="wstat">
+            <img class="statIcon" src="img/humidity.png" alt="temp" />
+            <div class="wstatVal">
+              10
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="footer">
+    <div id="pageMarker">
+      <div class="pageSelector"></div>
+      <div class="pageSelector"></div>
+      <div class="pageSelector pageSelected"></div>
+    </div>
+  </div>
+</div>
+</div>
 
 
-  <script type="text/javascript" src="cordova.js"></script>
-  <script src="jq/jquery-1.11.1.js"></script>
-  <script src="jq/jquery.mobile-1.4.5.min.js"></script>
-  <script src="js/pageSwitcher.js"></script>
+<!-- Andere pagina's volgen dit format -->
+<div class="" data-role="page" id="settings">
+  <div class="contentBlock">
+    <a href="#main"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
+
+  </div>
+  <div class="ui-content" data-role="main" style="margin:15px;">
+    <h1>Instellingen</h1>
+    <form id="settingForm">
+      <div class="ui-field-contain">
+        <label for="notificaties">Notificaties ontvangen</label>
+        <select name="notificaties" id="notificaties" data-role="flipswitch" onchange="changeNoti();">
+          <option value="off">Uit</option>
+          <option value="on">Aan</option>
+        </select>
+      </div>
+      <div class="ui-field-contain">
+        <label for="dynamisch">Dynamische achtergronden</label>
+        <select name="dynamisch" id="dynamisch" data-role="flipswitch" onchange="changeDyna();">
+          <option value="off">Uit</option>
+          <option value="on">Aan</option>
+        </select>
+      </div>
+      <fieldset data-role="controlgroup" data-type="horizontal">
+        <legend>Eenheden</legend>
+        <input type="radio" name="eenheid" id="metrisch" value="metrisch" onclick="changeEenheid()" />
+        <label for="metrisch">Metrisch</label>
+
+        <input type="radio" name="eenheid" id="imperiaal" value="imperiaal" onclick="changeEenheid()" />
+        <label for="imperiaal">Imperiaal</label>
+      </fieldset>
+    </form>
+    <hr style="margin:10px auto;" />
+    <button style="text-align:center; margin-top:25px;" onclick="removeKnijper()" data-role="button"><i class="fa fa-trash" aria-hidden="true"></i> Reset uw SMART-Knijper</button>
+  </div>
+</div>
+
+<div class="" data-role="page" id="firstLoad">
+  <div class="ui-content" data-role="main">
+    <div class="head" data-role="header">
+      <h1>Zoek uw SMART-Knijper</h1>
+    </div>
+    <div class="ui-content" data-role="main">
+      <div style="margin:15px; " class="gevondenDevices">
+        <div >
+          <input type="text" name="name" id="KnijperName" />
+          <input type="hidden" name="key" id="KnijperID" value="01" />
+        </div>
+      </div>
+      <div class="center">
+        <div style="height:200px;">
+          <i style="display:none; margin:0 auto;" class="fa fa-refresh fa-spin fa-fw"></i>
+        </div>
+        <button onclick="addKnijper()" class="ui-btn">Toevoegen</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript" src="cordova.js"></script>
+<script src="jq/jquery-1.11.1.js"></script>
+<script src="jq/jquery.mobile-1.4.5.min.js"></script>
+<script src="js/pageSwitcher.js"></script>
 </body>
 </html>
