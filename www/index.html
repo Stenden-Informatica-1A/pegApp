@@ -21,33 +21,37 @@
       <a href="#settings"><img src="img/settings.png" alt="settings" id="settingsButton"></a>
     </div>
     <div id="weather" class="clearfix heroBox">
-      <div id="weatherDescription">
-        <h2>Zonnig</h2>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-          Donec nec leo eget ante aliquet porttitor sit amet ac lacus.
-          Duis accumsan imperdiet neque.
+      <div class="weatherDescription">
+        <h2 class="today">Loading...</h2>
+        <p class="dCond">
+          Weer gegevens aan het zoeken!
         </p>
       </div>
-      <img class="weatherIcon" src="img/sunny.png" alt="weather" />
+      <div class="weatherIcon"></div> 
       <div id="weatherStats">
         <hr>
         <div class="wstat">
           <img class="statIcon" src="img/temp.png" alt="temp" />
           <div class="wstatVal">
-            10
+			<div class="dAvgTemp">
+				??
+			</div>
           </div>
         </div>
         <div class="wstat">
           <img class="statIcon" src="img/windicon.png" alt="temp" />
           <div class="wstatVal">
-            10
+			<div class="cWindSpeed">
+				??
+			</div>
           </div>
         </div>
         <div class="wstat">
           <img class="statIcon" src="img/humidity.png" alt="temp" />
           <div class="wstatVal">
-            10
+			<div class="dAvgHum">
+				??
+			</div>
           </div>
         </div>
       </div>
@@ -71,80 +75,48 @@
     </div>
     <div id="content">
       <div id="weatherDay" class="clearfix heroBox">
-        <div id="weatherDescription">
-          <h2>Vandaag</h2>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            Donec nec leo eget ante aliquet porttitor sit amet ac lacus.
-            Duis accumsan imperdiet neque.
+        <div class="weatherDescription">
+          <h2 class="today">Vandaag</h2>
+          <p class="dCond">
+            Geen weer gegevens gevonden.
           </p>
         </div>
-        <img class="weatherIcon" src="img/sunny.png" alt="weather" />
+        <div class="weatherIcon"></div> 
         <div id="weatherStats">
           <hr>
           <div class="wstat">
             <img class="statIcon" src="img/temp.png" alt="temp" />
             <div class="wstatVal">
-              10
+				<div class="dAvgTemp">
+					??
+				</div>
             </div>
           </div>
           <div class="wstat">
             <img class="statIcon" src="img/windicon.png" alt="temp" />
             <div class="wstatVal">
-              10
+				<div class="cWindSpeed">
+					??
+				</div>
             </div>
           </div>
           <div class="wstat">
             <img class="statIcon" src="img/humidity.png" alt="temp" />
             <div class="wstatVal">
-              10
+				<div class="dAvgHum">
+					??
+				</div>
             </div>
           </div>
         </div>
       </div>
       <div id="dayOverview">
-        <table>
+        <table id="tDay">
           <tr>
             <th>Uur</th>
             <th>Weer</th>
             <th>Temp</th>
             <th>Wind</th>
-          </tr>
-          <tr>
-            <td>09:00</td>
-            <td>zon</td>
-            <td>10</td>
-            <td>10</td>
-          </tr>
-          <tr>
-            <td>09:00</td>
-            <td>zon</td>
-            <td>10</td>
-            <td>10</td>
-          </tr>
-          <tr>
-            <td>09:00</td>
-            <td>zon</td>
-            <td>10</td>
-            <td>10</td>
-          </tr>
-          <tr>
-            <td>09:00</td>
-            <td>zon</td>
-            <td>10</td>
-            <td>10</td>
-          </tr>
-          <tr>
-            <td>09:00</td>
-            <td>zon</td>
-            <td>10</td>
-            <td>10</td>
-          </tr>
-          <tr>
-            <td>09:00</td>
-            <td>zon</td>
-            <td>10</td>
-            <td>10</td>
           </tr>
         </table>
       </div>
@@ -171,94 +143,24 @@
   </div>
   <div id="content">
     <div id="weatherWeek" class="clearfix heroBox">
-      <div id="weatherDescription">
-        <h2>Deze week</h2>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-          Donec nec leo eget ante aliquet porttitor sit amet ac lacus.
-          Duis accumsan imperdiet neque.
+      <div class="weatherDescription">
+        <h2 id="week">Deze week</h2>
+        <p id="aText">
+          Geen weer? Foutmelding!
         </p>
       </div>
+	<div id="aIcon"></div>
     </div>
     <div id="weekOverview">
-      <div class="week">
-        <h2>Maandag</h2>
-        <p>09-09-2019</p>
-        <img class="weatherIcon weekIcon" src="img/sunny.png" alt="weather" />
-        <hr>
-        <div id="weatherStats">
-          <div class="wstat">
-            <img class="statIcon" src="img/temp.png" alt="temp" />
-            <div class="wstatVal">
-              10
-            </div>
-          </div>
-          <div class="wstat">
-            <img class="statIcon" src="img/windicon.png" alt="temp" />
-            <div class="wstatVal">
-              10
-            </div>
-          </div>
-          <div class="wstat">
-            <img class="statIcon" src="img/humidity.png" alt="temp" />
-            <div class="wstatVal">
-              10
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="week">
-        <h2>Maandag</h2>
-        <p>09-09-2019</p>
-        <img class="weatherIcon weekIcon" src="img/sunny.png" alt="weather" />
-        <hr>
-        <div id="weatherStats">
-          <div class="wstat">
-            <img class="statIcon" src="img/temp.png" alt="temp" />
-            <div class="wstatVal">
-              10
-            </div>
-          </div>
-          <div class="wstat">
-            <img class="statIcon" src="img/windicon.png" alt="temp" />
-            <div class="wstatVal">
-              10
-            </div>
-          </div>
-          <div class="wstat">
-            <img class="statIcon" src="img/humidity.png" alt="temp" />
-            <div class="wstatVal">
-              10
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="week">
-        <h2>Maandag</h2>
-        <p>09-09-2019</p>
-        <img class="weatherIcon weekIcon" src="img/sunny.png" alt="weather" />
-        <hr>
-        <div id="weatherStats">
-          <div class="wstat">
-            <img class="statIcon" src="img/temp.png" alt="temp" />
-            <div class="wstatVal">
-              10
-            </div>
-          </div>
-          <div class="wstat">
-            <img class="statIcon" src="img/windicon.png" alt="temp" />
-            <div class="wstatVal">
-              10
-            </div>
-          </div>
-          <div class="wstat">
-            <img class="statIcon" src="img/humidity.png" alt="temp" />
-            <div class="wstatVal">
-              10
-            </div>
-          </div>
-        </div>
-      </div>
+		<table id="tWeek">
+          <tr>
+            <th>Dag</th>
+            <th>Weer</th>
+            <th>Temp.</th>
+			<th>Luchtvocht.</th>
+            <th>Wind</th>
+          </tr>
+        </table>
     </div>
   </div>
   <div id="footer">
@@ -367,5 +269,6 @@ function progressSim(){
 }
 var sim = setInterval(progressSim, 50);
 </script>
+<script src="js/weather.js" type="text/javascript"></script>
 </body>
 </html>

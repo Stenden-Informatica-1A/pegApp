@@ -4,7 +4,7 @@
  */
 
 $(document).ready(function(){
-
+	
 	navigator.geolocation.getCurrentPosition(onSuccess, onError);
 	function onSuccess(position) {
 
@@ -35,9 +35,9 @@ $(document).ready(function(){
 				condition = "Pas op, neerslag verwacht!";
 			}
 
-			$("#today").html(location + " vandaag");
+			$(".today").html(location + " vandaag");
 			$(".dCond").html("Het weer van vandaag: " + results.forecast.forecastday[0].day.condition.text  + ".<br><br><b>" + condition + "</b>");
-			$(".dIcon").html("<img src='img/" + results.forecast.forecastday[0].day.condition.icon.substring(30) + "' alt='Weer icoon'>");
+			$(".weatherIcon").html("<img src='img/" + results.forecast.forecastday[0].day.condition.icon.substring(30) + "' alt='Weer icoon'>");
 			$(".dAvgTemp").html(results.forecast.forecastday[0].day.avgtemp_c + " °C");
 			$(".cWindDir").html(results.current.wind_dir);
 			$(".cWindSpeed").html(results.current.wind_kph + " km/u");
@@ -59,7 +59,6 @@ $(document).ready(function(){
 				tr.append("<td>" + hour + ":00</td>");
 				tr.append("<td><img src='img/" + results.forecast.forecastday[0].hour[i].condition.icon.substring(30) + "' alt='"+ results.current.condition.text +"'></td>");
 				tr.append("<td>" + results.forecast.forecastday[0].hour[i].temp_c + " °C</td>");
-				tr.append("<td>" + results.forecast.forecastday[0].hour[i].humidity + " %</td>");
 				tr.append("<td>" + results.forecast.forecastday[0].hour[i].wind_kph + " km/u</td>");
 
 				$('#tDay').append(tr);
