@@ -5,9 +5,13 @@
     "cordova": {
         "platforms": [
             "android"
-        ]
+        ],
+        "plugins": {
+            "cordova-plugin-mqtt": {}
+        }
     },
     "dependencies": {
-        "cordova-android": "~6.2.3"
+        "cordova-android": "~6.2.3",
+        "cordova-plugin-mqtt": "~0.3.8"
     }
 }
