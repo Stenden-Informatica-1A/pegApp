@@ -207,8 +207,12 @@
         <label for="imperiaal">Imperiaal</label>
       </fieldset>
     </form>
+    <button id="connect">Connect</button><button id="disconnect" style="display:none">Disconnect</button>
+    <button id="subscribe">Subscribe</button><button id="unsubscribe" style="display:none">Unsubscribe</button>
     <hr style="margin:10px auto;" />
     <button style="text-align:center; margin-top:25px;" onclick="removeKnijper()" data-role="button"><i class="fa fa-trash" aria-hidden="true"></i> Reset uw SMART-Knijper</button>
+    <h4>Activity Log</h4>
+    <div id="activity"></div>
   </div>
 </div>
 
@@ -238,6 +242,7 @@
 <script src="jq/jquery-1.11.1.js"></script>
 <script src="jq/jquery.mobile-1.4.5.min.js"></script>
 <script src="js/pageSwitcher.js"></script>
+<script src="js/index.js"></script>
 <script>
 var ctx = document.getElementById('my_canvas').getContext('2d');
 var al = 0;

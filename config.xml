@@ -10,4 +10,5 @@
     <content src="index.html" />
     <access origin="*" />
     <engine name="android" spec="~6.2.3" />
+    <plugin name="cordova-plugin-mqtt" spec="~0.3.8" />
 </widget>
