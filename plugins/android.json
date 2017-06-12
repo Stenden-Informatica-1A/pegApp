@@ -1,0 +1,31 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {}
+    },
+    "installed_plugins": {
+        "cordova-plugin-mqtt": {
+            "PACKAGE_NAME": "com.phonegap.jq"
+        },
+        "cordova-plugin-qrscanner": {
+            "PACKAGE_NAME": "com.phonegap.jq"
+        },
+        "de.appplant.cordova.plugin.local-notification": {
+            "PACKAGE_NAME": "com.phonegap.jq"
+        }
+    },
+    "dependent_plugins": {
+        "cordova-plugin-app-event": {
+            "PACKAGE_NAME": "com.phonegap.jq"
+        },
+        "cordova-plugin-device": {
+            "PACKAGE_NAME": "com.phonegap.jq"
+        },
+        "cordova-plugin-compat": {
+            "PACKAGE_NAME": "com.phonegap.jq"
+        }
+    }
+}

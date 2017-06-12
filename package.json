@@ -1,0 +1,20 @@
+{
+    "name": "com.phonegap.jq",
+    "version": "1.0.0",
+    "displayName": "JQ",
+    "cordova": {
+        "platforms": [
+            "android"
+        ],
+        "plugins": {
+            "cordova-plugin-mqtt": {},
+            "cordova-plugin-qrscanner": {}
+        }
+    },
+    "dependencies": {
+        "cordova-android": "^6.2.3",
+        "cordova-plugin-compat": "^1.0.0",
+        "cordova-plugin-mqtt": "~0.3.8",
+        "cordova-plugin-qrscanner": "^2.5.0"
+    }
+}

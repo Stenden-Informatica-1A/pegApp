@@ -1,0 +1,94 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "cordova-plugin-mqtt",
+        "scope": null,
+        "escapedName": "cordova-plugin-mqtt",
+        "name": "cordova-plugin-mqtt",
+        "rawSpec": "",
+        "spec": "latest",
+        "type": "tag"
+      },
+      "C:\\Users\\Kevin\\github\\pegApp\\node_modules"
+    ]
+  ],
+  "_from": "cordova-plugin-mqtt@latest",
+  "_id": "cordova-plugin-mqtt@0.3.8",
+  "_inCache": true,
+  "_location": "/cordova-plugin-mqtt",
+  "_nodeVersion": "4.6.0",
+  "_npmOperationalInternal": {
+    "host": "packages-12-west.internal.npmjs.com",
+    "tmp": "tmp/cordova-plugin-mqtt-0.3.8.tgz_1475583788420_0.3891344217117876"
+  },
+  "_npmUser": {
+    "name": "arcoirislabs",
+    "email": "amey@arcoirislabs.com"
+  },
+  "_npmVersion": "2.15.9",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "cordova-plugin-mqtt",
+    "scope": null,
+    "escapedName": "cordova-plugin-mqtt",
+    "name": "cordova-plugin-mqtt",
+    "rawSpec": "",
+    "spec": "latest",
+    "type": "tag"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/cordova-plugin-mqtt/-/cordova-plugin-mqtt-0.3.8.tgz",
+  "_shasum": "2f0e075e0b67813618bfcb4b913ad9c0918c54e5",
+  "_shrinkwrap": null,
+  "_spec": "cordova-plugin-mqtt",
+  "_where": "C:\\Users\\Kevin\\github\\pegApp\\node_modules",
+  "author": {
+    "name": "Arcoiris Labs",
+    "email": "amey@arcoirislabs.com"
+  },
+  "bugs": {
+    "url": "https://github.com/arcoirislabs/mqtt-cordova/issues"
+  },
+  "cordova": {
+    "id": "cordova-plugin-mqtt",
+    "platforms": [
+      "android"
+    ]
+  },
+  "dependencies": {},
+  "description": "Cordova plugin for MQTT (Message Queuing Telemetry Transport) protocol. Supports 3.x protocol. More platforms to be added in coming future.",
+  "devDependencies": {},
+  "directories": {},
+  "dist": {
+    "shasum": "2f0e075e0b67813618bfcb4b913ad9c0918c54e5",
+    "tarball": "https://registry.npmjs.org/cordova-plugin-mqtt/-/cordova-plugin-mqtt-0.3.8.tgz"
+  },
+  "gitHead": "cc053a88fc25b6ade38b8014e12baa02cca36bb4",
+  "homepage": "https://github.com/arcoirislabs/mqtt-cordova#readme",
+  "keywords": [
+    "cordova",
+    "ecosystem:cordova",
+    "mqtt",
+    "arcoirislabs"
+  ],
+  "license": "MIT",
+  "maintainers": [
+    {
+      "name": "arcoirislabs",
+      "email": "amey@arcoirislabs.com"
+    }
+  ],
+  "name": "cordova-plugin-mqtt",
+  "optionalDependencies": {},
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arcoirislabs/mqtt-cordova.git"
+  },
+  "scripts": {},
+  "version": "0.3.8"
+}
