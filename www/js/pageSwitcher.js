@@ -44,12 +44,12 @@ $(document).on("backbutton", function (e){
 	//Als het de hoofdpagina is
     if($.mobile.activePage.attr("id") == "main"){
 		//Geef melding om af te willen sluiten
-		navigator.notification.confirm("Are you sure you want to exit ?", alertexit, "Confirmation", "Yes,No");
+		confirm("Weet u zeker dat u de app wilt afsluiten?");
     }
 	//Als het de firstLoad pagina is
     else if($.mobile.activePage.attr("id") == "firstLoad"){
 		//Geef melding om af te willen sluiten
-		navigator.notification.confirm("Are you sure you want to exit ?", alertexit, "Confirmation", "Yes,No");
+		confirm("Weet u zeker dat u de app wilt afsluiten?");
     }
 	//Anders ga naar de hoofdpagina
     else{
