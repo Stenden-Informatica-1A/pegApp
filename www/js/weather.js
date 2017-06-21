@@ -275,9 +275,6 @@ $(document).ready(function(){
 		});
 	}
 	function onError() {
-<<<<<<< HEAD
-        //alert('onError!');
-=======
 		$(".today").html("Error!");
 		$("#week").html("Error!");
 		$("#aText").html("Locatie opvragen mislukt!");
@@ -285,7 +282,6 @@ $(document).ready(function(){
 		$(".weatherIcon").html("<img src='img/night/200.png' alt='Error'>");
 		$("#aIcon").html("<img src='img/night/200.png' alt='Error'>");
 		onSuccess();
->>>>>>> master
     }
 
 

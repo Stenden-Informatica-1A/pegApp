@@ -3,6 +3,7 @@ var page;
 
 //Kijken of er al een wasknijper is toegevoegd aan de app
 if( localStorage.getItem('knijperName') && localStorage.getItem('knijperKey') && localStorage.getItem('knijperKey') == "01" ){
+	window.location.href = "index.html";
 	//Als de pagina veranderd verander naar pagina
 	$(document).on("pagechange", function (e, data) {
 		page = data.toPage[0].id;
@@ -27,7 +28,6 @@ if( localStorage.getItem('knijperName') && localStorage.getItem('knijperKey') &&
 				$.mobile.changePage(prevPage, {
 					transition: "slide",
 					reverse: true // reverse effect
-
 				}
 			  );
 			  activePage = $( ".selector" ).pagecontainer( "getActivePage" );
