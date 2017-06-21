@@ -292,11 +292,47 @@
 			<div id="activity"></div>
 		  </div>
 		</div>
+<<<<<<< HEAD
 
 		<div class="" data-role="page" id="firstLoad">
 			<div class="ui-content" data-role="main">
 				<h1 class="title">Zoek uw Sunny</h1>
 			</div>
+=======
+	  </div>
+    <form id="settingForm">
+      <div class="ui-field-contain">
+        <label for="notificaties">Notificaties ontvangen</label>
+        <select name="notificaties" id="notificaties" data-role="flipswitch" onchange="changeNoti();">
+          <option value="off">Uit</option>
+          <option value="on">Aan</option>
+        </select>
+      </div>
+      <div class="ui-field-contain">
+        <label for="dynamisch">Dynamische achtergronden</label>
+        <select name="dynamisch" id="dynamisch" data-role="flipswitch" onchange="changeDyna();">
+          <option value="off">Uit</option>
+          <option value="on">Aan</option>
+        </select>
+      </div>
+      <fieldset data-role="controlgroup" data-type="horizontal">
+        <legend>Eenheden</legend>
+        <input type="radio" name="eenheid" id="metrisch" value="metrisch"/>
+        <label for="metrisch">Metrisch</label>
+
+        <input type="radio" name="eenheid" id="imperiaal" value="imperiaal"/>
+        <label for="imperiaal">Imperiaal</label>
+      </fieldset>
+    </form>
+    <button id="connect">Connect</button><button id="disconnect" style="display:none">Disconnect</button>
+    <button id="subscribe">Subscribe</button><button id="unsubscribe" style="display:none">Unsubscribe</button>
+    <hr style="margin:10px auto;" />
+    <button style="text-align:center; margin-top:25px;" onclick="removeKnijper()" data-role="button"><i class="fa fa-trash" aria-hidden="true"></i> Reset uw SMART-Knijper</button>
+    <h4>Activity Log</h4>
+    <div id="activity"></div>
+  </div>
+</div>
+>>>>>>> master
 
 			<div class="scanBGwrapper">
 				<div class="scanBG">
