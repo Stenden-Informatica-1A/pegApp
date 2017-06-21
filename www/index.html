@@ -6,93 +6,13 @@
 	  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
 	  <link rel="stylesheet" href="jq/jquery.mobile-1.4.5.css" />
 	  <link rel="stylesheet" href="css/appstyle.css">
+	  <link rel="stylesheet" href="css/appStyleJF.css">
 	
 
 	  <title>Smart wasknijper</title>
 	</head>
 
 	<body>
-		<style>
-			body>*{
-				background-color:#f9f9f9;
-			}
-			body, #firstLoad{
-				background-color:transparent !important;
-			}
-			.scanBG{
-				background-color:transparent;
-			}
-			#firstLoad {
-				position:relative;
-			}
-			#firstLoad .ui-content.wrapper{
-				position:fixed;
-				bottom:0;
-				left:0; right:0;
-			}
-			.title{
-				text-align:center;
-			}
-			.gevondenDevices{
-				margin:15px;
-			}
-			.scanBGwrapper{
-				padding:15px;
-				margin:0 auto;
-				position:relative;
-				margin-top:65px;
-				display:none;
-			}
-			.scanBG{
-				text-align:center;
-			}
-			.scanBGbars{
-				width: calc( (100vw / 3) - 30px ) ;
-				height: calc( (100vw / 3) - 30px ) ;
-				display:inline-block;
-				border:3px solid transparent;
-			}
-			.scanBGbars1{
-				border-top:3px solid black;
-				border-left:3px solid black;
-			}
-			.scanBGbars3{
-				border-top:3px solid black;
-				border-right:3px solid black;
-			}
-			.scanBGbars7{
-				border-bottom:3px solid black;
-				border-left:3px solid black;
-			}
-			.scanBGbars9{
-				border-bottom:3px solid black;
-				border-right:3px solid black;
-			}
-			
-			
-			#firstLoad .ui-content.wrapper.toggleBtntime{
-				background-color:transparent;
-				padding-bottom:25px;
-				display:none;
-			}
-			.toggleBtnWrapper{
-				text-align:center;
-			}
-			.toggleBtn{
-				display:inline-block;
-				background-color:rgba(204, 204,204,.66);
-				border-radius:50%;
-				height:80px;
-				width:80px;
-				line-height:80px;
-			}
-			.toggleBtn{
-				font-size:30pt;
-			}
-			.toggleBtn.flash{
-				margin-right:25%;
-			}
-		</style>
 	  <div class="" data-role="page" id="main">
 		<div id="header" class="clearfix">
 		  <img id ="logo" src="img/logo.png" width="50" height="50" alt="logo" />
@@ -138,11 +58,6 @@
 		  </div>
 		</div>
 		<canvas id="my_canvas" height="500px" width="500px"style="border:1px dashed #CCC;"></canvas>
-		<div id="pageMarker">
-		  <div class="pageSelector pageSelected"></div>
-		  <div class="pageSelector"></div>
-		  <div class="pageSelector"></div>
-		</div>
 	  </div>
 
 	  <!-- Andere pagina's volgen dit format -->
@@ -202,13 +117,6 @@
 			</table>
 		  </div>
 		</div>
-		<div id="footer">
-		  <div id="pageMarker">
-			<div class="pageSelector"></div>
-			<div class="pageSelector pageSelected"></div>
-			<div class="pageSelector"></div>
-		  </div>
-		</div>
 	  </div>
 
 		<!-- Andere pagina's volgen dit format -->
@@ -240,13 +148,6 @@
 					<th>Wind</th>
 				  </tr>
 				</table>
-			</div>
-		  </div>
-		  <div id="footer">
-			<div id="pageMarker">
-			  <div class="pageSelector"></div>
-			  <div class="pageSelector"></div>
-			  <div class="pageSelector pageSelected"></div>
 			</div>
 		  </div>
 		</div>

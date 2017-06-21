@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="com.phonegap.jq" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
-    <name>JQ</name>
+    <name>Sunny</name>
     <description>
-        A blank PhoneGap app.
+        De SMART-Wasknijper app
     </description>
-    <author email="support@phonegap.com" href="http://phonegap.com">
-        PhoneGap Team
+    <author email="support@inf1a.com" href="http://inf1a.com">
+        INF1A Team
     </author>
     <content src="index.html" />
     <access origin="*" />

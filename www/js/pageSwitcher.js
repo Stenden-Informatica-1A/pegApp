@@ -1,55 +1,92 @@
 //Variables aanmaken
 var page;
+getPageSwipe();
+footerDots();
 
-//Kijken of er al een wasknijper is toegevoegd aan de app
-if( localStorage.getItem('knijperName') && localStorage.getItem('knijperKey') && localStorage.getItem('knijperKey') == "01" ){
-	window.location.href = "index.html";
-	//Als de pagina veranderd verander naar pagina
-	$(document).on("pagechange", function (e, data) {
-		page = data.toPage[0].id;
-	});
-	//Bij het vegen naar links of rechts
-	$(document).on('swipeleft swiperight', function (event) {
-		// next page
-		if (event.type == 'swipeleft' && page !="weatherWeek" && page!="settings" && page!="firstLoad") {
-			var nextPage = $.mobile.activePage.next('[data-role=page]');
-			if (nextPage) {
-				$.mobile.changePage(nextPage, {
-					transition: "slide" // or any transition
+//Zorgen dat het vegen werkt
+function getPageSwipe(){
+	//Kijken of er al een wasknijper is toegevoegd aan de app
+	if( localStorage.getItem('knijperName') && localStorage.getItem('knijperKey') && localStorage.getItem('knijperKey') == "01" ){
+		//Als de pagina veranderd verander naar pagina
+		$(document).on("pagechange", function (e, data) {
+			page = data.toPage[0].id;
+		});
+		//Bij het vegen naar links of rechts
+		$(document).on('swipeleft swiperight', function (event) {
+			// next page
+			if (event.type == 'swipeleft' && page !="weatherWeek" && page!="settings" && page!="firstLoad") {
+				var nextPage = $.mobile.activePage.next('[data-role=page]');
+				if (nextPage) {
+					$.mobile.changePage(nextPage, {
+						transition: "slide" // or any transition
+					}
+				  );
 				}
-			  );
+				activePage = $( ".selector" ).pagecontainer( "getActivePage" );
 			}
-			activePage = $( ".selector" ).pagecontainer( "getActivePage" );
-		}
-		// previous page
-		if (event.type == 'swiperight' && page != "main"  && page!="settings" && page!="firstLoad") {
-			var prevPage = $.mobile.activePage.prev('[data-role=page]');
-			if (prevPage) {
-				$.mobile.changePage(prevPage, {
-					transition: "slide",
-					reverse: true // reverse effect
+			// previous page
+			if (event.type == 'swiperight' && page != "main"  && page!="settings" && page!="firstLoad") {
+				var prevPage = $.mobile.activePage.prev('[data-role=page]');
+				if (prevPage) {
+					$.mobile.changePage(prevPage, {
+						transition: "slide",
+						reverse: true // reverse effect
+					}
+				  );
+				  activePage = $( ".selector" ).pagecontainer( "getActivePage" );
 				}
-			  );
-			  activePage = $( ".selector" ).pagecontainer( "getActivePage" );
+			}
+		});
+	}
+	else{ //Terug sturen naar de pagina om je wasknijper toe te voegen.
+		window.location.href = "index.html#firstLoad";
+	}
+}
+
+
+//De aangeef puntjes maken
+function footerDots(){		
+	$(document).on("pageshow", function (e, data) {
+		$("#footer").remove();
+		var pageDots = $.mobile.pageContainer.pagecontainer( 'getActivePage' ).attr( 'id' );
+		if (pageDots=="main" || pageDots=="weatherDay" || pageDots=="weatherWeek") {
+			$("body").append('<div id="footer"><div id="pageMarker"><div class="pageSelector"></div><div class="pageSelector"></div><div class="pageSelector"></div></div></div>');
+			if(pageDots == "main")
+			{
+				$(".pageSelector:nth-child(1)").addClass("pageSelected");
+				$(".pageSelector:nth-child(2)").removeClass("pageSelected");
+				$(".pageSelector:nth-child(3)").removeClass("pageSelected");
+			}
+			else if(pageDots == "weatherDay")
+			{
+				$(".pageSelector:nth-child(1)").removeClass("pageSelected");
+				$(".pageSelector:nth-child(2)").addClass("pageSelected");
+				$(".pageSelector:nth-child(3)").removeClass("pageSelected");
+			}
+			else if(pageDots == "weatherWeek")
+			{
+				$(".pageSelector:nth-child(1)").removeClass("pageSelected");
+				$(".pageSelector:nth-child(2)").removeClass("pageSelected");
+				$(".pageSelector:nth-child(3)").addClass("pageSelected");
 			}
 		}
-	});
+		else
+		{
+			$("#footer").remove();
+		}
+	});	
 }
-else{ //Terug sturen naar de pagina om je wasknijper toe te voegen.
-	window.location.href = "index.html#firstLoad";
-}
+
 
 //Als er op de terug knop wordt gedrukt op de telefoon
 $(document).on("backbutton", function (e){
 	//Als het de hoofdpagina is
-    if($.mobile.activePage.attr("id") == "main"){
+    if($.mobile.activePage.attr("id") == "main" || $.mobile.activePage.attr("id") == "firstLoad"){
 		//Geef melding om af te willen sluiten
-		confirm("Weet u zeker dat u de app wilt afsluiten?");
-    }
-	//Als het de firstLoad pagina is
-    else if($.mobile.activePage.attr("id") == "firstLoad"){
-		//Geef melding om af te willen sluiten
-		confirm("Weet u zeker dat u de app wilt afsluiten?");
+		var r = confirm("Weet u zeker dat u de app wilt afsluiten?");
+		if (r == true) {
+			navigator.app.exitApp();
+		}
     }
 	//Anders ga naar de hoofdpagina
     else{
@@ -58,6 +95,7 @@ $(document).on("backbutton", function (e){
 	  });
     }
 });
+
 
 //De knop voor het afsluiten vd app
 function alertexit(button){
@@ -69,18 +107,19 @@ function alertexit(button){
 
 // Wasknijper toevoegen
 function addKnijper() {
-  //Locale velden maken en zetten.
-  localStorage.setItem('knijperName', document.getElementById('KnijperName').value);
-  localStorage.setItem('knijperKey', document.getElementById('KnijperID').value);
+	//Locale velden maken en zetten.
+	localStorage.setItem('knijperName', document.getElementById('KnijperName').value);
+	localStorage.setItem('knijperKey', document.getElementById('KnijperID').value);
 
-  //Melding geven dat de knijper is teogevoegd.
-  alert("SMART-Knijper " + localStorage.getItem('knijperName') + " is toegevoegd!");
+	//Melding geven dat de knijper is teogevoegd.
+	alert("SMART-Knijper " + localStorage.getItem('knijperName') + " is toegevoegd!");
 
-  //Naar de homepage gaan
-  $.mobile.changePage("index.html", {
+	//Naar de homepage gaan
+	$.mobile.changePage("index.html", {
 		transition: "slideup"
-  });
+	});
 	destroyScan();
+	test123();
 }
 
 

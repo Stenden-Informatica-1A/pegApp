@@ -1,0 +1,80 @@
+
+body>*{
+	background-color:#f9f9f9;
+}
+body, #firstLoad{
+	background-color:transparent !important;
+}
+.scanBG{
+	background-color:transparent;
+}
+#firstLoad {
+	position:relative;
+}
+#firstLoad .ui-content.wrapper{
+	position:fixed;
+	bottom:0;
+	left:0; right:0;
+}
+.title{
+	text-align:center;
+}
+.gevondenDevices{
+	margin:15px;
+}
+.scanBGwrapper{
+	padding:15px;
+	margin:0 auto;
+	position:relative;
+	margin-top:65px;
+	display:none;
+}
+.scanBG{
+	text-align:center;
+}
+.scanBGbars{
+	width: calc( (100vw / 3) - 30px ) ;
+	height: calc( (100vw / 3) - 30px ) ;
+	display:inline-block;
+	border:3px solid transparent;
+}
+.scanBGbars1{
+	border-top:3px solid black;
+	border-left:3px solid black;
+}
+.scanBGbars3{
+	border-top:3px solid black;
+	border-right:3px solid black;
+}
+.scanBGbars7{
+	border-bottom:3px solid black;
+	border-left:3px solid black;
+}
+.scanBGbars9{
+	border-bottom:3px solid black;
+	border-right:3px solid black;
+}
+
+
+#firstLoad .ui-content.wrapper.toggleBtntime{
+	background-color:transparent;
+	padding-bottom:25px;
+	display:none;
+}
+.toggleBtnWrapper{
+	text-align:center;
+}
+.toggleBtn{
+	display:inline-block;
+	background-color:rgba(204, 204,204,.66);
+	border-radius:50%;
+	height:80px;
+	width:80px;
+	line-height:80px;
+}
+.toggleBtn{
+	font-size:30pt;
+}
+.toggleBtn.flash{
+	margin-right:25%;
+}
