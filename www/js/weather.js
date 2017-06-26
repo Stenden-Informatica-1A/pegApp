@@ -6,7 +6,7 @@
 
 $(document).ready(function(){
 	
-	﻿var apixuKey = "c41bcf9328bc4b0c9c7100935171805";
+	var apixuKey = "c41bcf9328bc4b0c9c7100935171805";
 	var Area = "auto:ip";
 	var Query = 'http://api.apixu.com/v1/forecast.json?key=' + apixuKey + '&q=' + Area + '&days=7&lang=nl';
 
