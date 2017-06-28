@@ -118,8 +118,9 @@ function addKnijper() {
 	$.mobile.changePage("index.html", {
 		transition: "slideup"
 	});
+	window.location.href = "index.html";
 	destroyScan();
-	test123();
+	//test123();
 }
 
 
@@ -151,7 +152,7 @@ $('#wasknijperNaam').text( localStorage.getItem('knijperName') );
 //Notificaties
 //Als er nog geen instelling is gezet voor de notificaties
 if( !localStorage.getItem('notificaties') ){
-	localStorage.setItem('notificaties', "off");
+	localStorage.setItem('notificaties', "on");
 }
 //Anders de waarde van het element goed zetten gebasseerd op de opgeslagen waarde
 else{

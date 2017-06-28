@@ -18,7 +18,11 @@
         <icon density="xxhdpi" src="res/android/xxhdpi.png" />
         <icon density="xxxhdpi" src="res/android/xxxhdpi.png" />
     </platform>
+    <access origin="http://apixu.com/" />
+    <access origin="http/://apixu.com/" />
+    <access origin="http://api.apixu.com/" />
     <engine name="android" spec="^6.2.3" />
     <plugin name="cordova-plugin-mqtt" spec="~0.3.8" />
     <plugin name="cordova-plugin-qrscanner" spec="^2.5.0" />
+    <plugin name="cordova-plugin-whitelist" spec="^1.3.2" />
 </widget>
