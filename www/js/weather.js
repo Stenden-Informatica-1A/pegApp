@@ -8,24 +8,48 @@ $(document).ready(function(){
 	
 	﻿var apixuKey = "c41bcf9328bc4b0c9c7100935171805";
 	var Area, Query;
+	var counter = 0;
+	if(localStorage.getItem("count") === null){
+	}else{
+		counter = localStorage.getItem("count");
+	}	
+	localStorage.setItem("count",counter);
 	
 	//if there's a location stored use that, if not get a location.
 	if(localStorage.getItem("loc") === null){
+		getLocation();
 		//Request location from device.
-		navigator.geolocation.getCurrentPosition(onSuccess, onError);
-		
-		//if succesfull: Get the location and send the query for JSON request.
-		function onSuccess(position) {
-		 Area = position.coords.latitude.toString() + "," + position.coords.longitude.toString();
-		 Query = 'http://api.apixu.com/v1/forecast.json?key=' + apixuKey + '&q=' + Area + '&days=7&lang=nl'; 
-		 sendJson(Query);
-		}
-		//if unsucesfull use IP for location instead.
-		function onError(){
-			alert("Geen GPS: Locatie mogelijk onnauwkeurig! Handmatige invoer mogelijk.");
-			Area = "auto:ip";
-			Query = 'http://api.apixu.com/v1/forecast.json?key=' + apixuKey + '&q=' + Area + '&days=7&lang=nl'; 
-			sendJson(Query);
+		function getLocation(){
+			navigator.geolocation.getCurrentPosition(onSuccess, onError, { maximumAge: 0, timeout: 10000, enableHighAccuracy: true });
+			
+			//if succesfull: Get the location and send the query for JSON request.
+			function onSuccess(position) {
+			 Area = position.coords.latitude.toString() + "," + position.coords.longitude.toString();
+			 Query = 'http://api.apixu.com/v1/forecast.json?key=' + apixuKey + '&q=' + Area + '&days=7&lang=nl'; 
+			 sendJson(Query);
+			}
+			//if unsucesfull use IP for location instead.
+			function onError(error){
+				//First time is just a request for GPS, second time it actually goes to IP location.
+				if(localStorage.getItem("count") == 0){
+					counter++;
+					localStorage.setItem("count",counter);
+				}else{
+					counter = localStorage.getItem("count");
+					counter++;
+					localStorage.setItem("count",counter);
+				}
+				if(localStorage.getItem("count") == 1){
+					alert("Voor nauwkeurige weer gegevens van uw was ophang locatie, dient u uw GPS aan te zetten. \n \n(Ga naar Instellingen om uw locatie te wijzigen.)");
+					counter++;
+					localStorage.setItem("count",counter);	
+				}else{
+					alert("Geen GPS gevonden! \n Uw IP Locatie zal worden gebruikt, dit kan onnauwkeurig zijn!");
+					Area = "auto:ip";
+					Query = 'http://api.apixu.com/v1/forecast.json?key=' + apixuKey + '&q=' + Area + '&days=7&lang=nl'; 
+					sendJson(Query);
+				}
+			}
 		}
 	}else{
 		Area = localStorage.getItem("loc");
@@ -33,7 +57,7 @@ $(document).ready(function(){
 		sendJson(Query);
 
 	}
-	//if the location gets manually changed, use that instead.
+	//If the location gets manually changed, use that instead.
 	document.getElementById("locButton").onclick = function(){
 		var newLoc = document.getElementById("location").value;
 		localStorage.setItem("loc",newLoc);
@@ -41,6 +65,11 @@ $(document).ready(function(){
 		Area = localStorage.getItem("loc");
 		Query = 'http://api.apixu.com/v1/forecast.json?key=' + apixuKey + '&q=' + Area + '&days=7&lang=nl';
 		sendJson(Query);
+	}
+	//Search again for the location, GPS or IP, when the button is pressed.
+	document.getElementById("gpsButton").onclick = function(){
+		alert("Nieuwe locatie aangevraagd!\n\nHet ophalen van de gegevens kan enkele seconden duren.");
+		getLocation();
 	}
 	
 	//Get JSON data using an AJAX request.
