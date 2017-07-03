@@ -7,7 +7,7 @@
 $(document).ready(function(){
 	
 	﻿var apixuKey = "c41bcf9328bc4b0c9c7100935171805";
-	var Area, Query;
+	var Area, Query, timeOut;
 	var counter = 0;
 	if(localStorage.getItem("count") === null){
 	}else{
@@ -20,7 +20,12 @@ $(document).ready(function(){
 		getLocation();
 		//Request location from device.
 		function getLocation(){
-			navigator.geolocation.getCurrentPosition(onSuccess, onError, { maximumAge: 0, timeout: 10000, enableHighAccuracy: true });
+			if(localStorage.getItem("count")==0){
+				timeOut = 600000;
+			}else{
+				timeOut =  5000;
+			}
+			navigator.geolocation.getCurrentPosition(onSuccess, onError, { maximumAge: 0, timeout: timeOut, enableHighAccuracy: true });
 			
 			//if succesfull: Get the location and send the query for JSON request.
 			function onSuccess(position) {
