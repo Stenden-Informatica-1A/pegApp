@@ -45,7 +45,6 @@ $(document).ready(function(){
 					localStorage.setItem("count",counter);
 				}
 				if(localStorage.getItem("count") == 1){
-					alert("Voor nauwkeurige weer gegevens van uw was ophang locatie, dient u uw GPS aan te zetten. \n \n(Ga naar Instellingen om uw locatie te wijzigen.)");
 					counter++;
 					localStorage.setItem("count",counter);	
 				}else{
