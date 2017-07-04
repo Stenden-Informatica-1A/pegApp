@@ -1,3 +1,6 @@
+/*  Name: Jeramai Faber
+Date: 1-June-2017
+*/
 var flash = false;
 
 function scan_now()

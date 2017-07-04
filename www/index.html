@@ -1,280 +1,285 @@
 <!DOCTYPE html>
 <html>
-	<head>
-	  <meta charset="utf-8">
-	  <link rel="stylesheet" href="css/fa.min.css">
-	  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
-	  <link rel="stylesheet" href="jq/jquery.mobile-1.4.5.css" />
-	  <link rel="stylesheet" href="css/appstyle.css">
-	  <link rel="stylesheet" href="css/appStyleJF.css">
-	
-
-	  <title>Smart wasknijper</title>
-	</head>
-
+<head>
+	<meta charset="utf-8">
+	<link href="css/fa.min.css" rel="stylesheet">
+	<meta content=
+	"initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width" name=
+	"viewport">
+	<link href="jq/jquery.mobile-1.4.5.css" rel="stylesheet">
+	<link href="css/appstyle.css" rel="stylesheet">
+	<link href="css/appStyleJF.css" rel="stylesheet">
+	<title>Smart wasknijper</title>
+</head>
 <body>
 	<div class="" data-role="page" id="main">
-	<div id="header" class="clearfix">
-	<img id ="logo" src="img/logo.png" width="50" height="50" alt="logo" />
-	<div id=title >
-	<h1>Uw wasknijper</h1>
-	</div>
-	<a href="#settings"><img src="img/settings.png" alt="settings" id="settingsButton"></a>
-	</div>
-	<div id="weather" class="clearfix heroBox">
-	<div class="weatherDescription">
-	<h2 class="today">Loading...</h2>
-	<p class="dCond">
-	Weer gegevens aan het zoeken!
-	</p>
-	</div>
-	<div class="weatherIcon"><img src='img/day/293.png' alt='Default weather icon'></div> 
-	<div id="weatherStats">
-	<hr>
-	<div class="wstat">
-	<img class="statIcon" src="img/temp.png" alt="temp" />
-	<div class="wstatVal">
-	<div class="dAvgTemp">
-	??
-	</div>
-	</div>
-	</div>
-	<div class="wstat">
-	<img class="statIcon" src="img/windIcon.png" alt="temp" />
-	<div class="wstatVal">
-	<div class="cWindSpeed">
-	??
-	</div>
-	</div>
-	</div>
-	<div class="wstat">
-	<img class="statIcon" src="img/humidity.png" alt="temp" />
-	<div class="wstatVal">
-	<div class="dAvgHum">
-	??
-	</div>
-	</div>
-	</div>
-	</div>
-	</div>
-	<canvas id="my_canvas" height="500px" width="500px"style="border:1px dashed #CCC;"></canvas>
-	</div>
-
-	<!-- Andere pagina's volgen dit format -->
-	<div class="" data-role="page" id="weatherDay">
-		<div id="header" class="clearfix">
-	  <img id ="logo" src="img/logo.png" width="50" height="50" alt="logo" />
-	  <div id=title >
-		<h1>Weer</h1>
-	  </div>
-	  <a href="#settings"><img src="img/settings.png" alt="settings" id="settingsButton"></a>
-	</div>
-		<div id="content">
-		  <div id="weatherDay" class="clearfix heroBox">
+		<div class="clearfix" id="header">
+			<img alt="logo" height="50" id="logo" src="img/logo.png" width="50">
+			<div id="title">
+				<h1>Uw wasknijper</h1>
+			</div><a href="#settings"><img alt="settings" id="settingsButton" src=
+			"img/settings.png"></a>
+		</div>
+		<div class="clearfix heroBox" id="weather">
 			<div class="weatherDescription">
-			  <h2 class="today">Vandaag</h2>
-			  <p class="dCond">
-				Geen weer gegevens gevonden.
-			  </p>
+				<h2 class="today">Loading...</h2>
+				<p class="dCond">Weer gegevens aan het zoeken!</p>
 			</div>
-			<div class="weatherIcon"><img src='img/day/293.png' alt='Default weather icon'></div> 
+			<div class="weatherIcon"><img alt='Default weather icon' src=
+			'img/day/293.png'></div>
 			<div id="weatherStats">
-			  <hr>
-			  <div class="wstat">
-				<img class="statIcon" src="img/temp.png" alt="temp" />
-				<div class="wstatVal">
-					<div class="dAvgTemp">
-						??
+				<hr>
+				<div class="wstat">
+					<img alt="temp" class="statIcon" src="img/temp.png">
+					<div class="wstatVal">
+						<div class="dAvgTemp">
+							??
+						</div>
 					</div>
 				</div>
-			  </div>
-			  <div class="wstat">
-				<img class="statIcon" src="img/windIcon.png" alt="temp" />
-				<div class="wstatVal">
-					<div class="cWindSpeed">
-						??
+				<div class="wstat">
+					<img alt="temp" class="statIcon" src="img/windIcon.png">
+					<div class="wstatVal">
+						<div class="cWindSpeed">
+							??
+						</div>
 					</div>
 				</div>
-			  </div>
-			  <div class="wstat">
-				<img class="statIcon" src="img/humidity.png" alt="temp" />
-				<div class="wstatVal">
-					<div class="dAvgHum">
-						??
+				<div class="wstat">
+					<img alt="temp" class="statIcon" src="img/humidity.png">
+					<div class="wstatVal">
+						<div class="dAvgHum">
+							??
+						</div>
 					</div>
 				</div>
-			  </div>
 			</div>
-		  </div>
-		  <div id="dayOverview">
-			<table id="tDay">
-			  <tr>
-				<th>Uur</th>
-				<th>Weer</th>
-				<th>Temp</th>
-				<th>Wind</th>
-			  </tr>
-			</table>
-		  </div>
+		</div>
+		<canvas height="500px" id="my_canvas" style="border:1px dashed #CCC;" width=
+		"500px"></canvas>
+	</div><!-- Andere pagina's volgen dit format -->
+	<div class="" data-role="page" id="weatherDay">
+		<div class="clearfix" id="header">
+			<img alt="logo" height="50" id="logo" src="img/logo.png" width="50">
+			<div id="title">
+				<h1>Weer</h1>
+			</div><a href="#settings"><img alt="settings" id="settingsButton" src=
+			"img/settings.png"></a>
+		</div>
+		<div id="content">
+			<div class="clearfix heroBox" id="weatherDay">
+				<div class="weatherDescription">
+					<h2 class="today">Vandaag</h2>
+					<p class="dCond">Geen weer gegevens gevonden.</p>
+				</div>
+				<div class="weatherIcon"><img alt='Default weather icon' src=
+				'img/day/293.png'></div>
+				<div id="weatherStats">
+					<hr>
+					<div class="wstat">
+						<img alt="temp" class="statIcon" src="img/temp.png">
+						<div class="wstatVal">
+							<div class="dAvgTemp">
+								??
+							</div>
+						</div>
+					</div>
+					<div class="wstat">
+						<img alt="temp" class="statIcon" src="img/windIcon.png">
+						<div class="wstatVal">
+							<div class="cWindSpeed">
+								??
+							</div>
+						</div>
+					</div>
+					<div class="wstat">
+						<img alt="temp" class="statIcon" src="img/humidity.png">
+						<div class="wstatVal">
+							<div class="dAvgHum">
+								??
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="dayOverview">
+				<table id="tDay">
+					<tr>
+						<th>Uur</th>
+						<th>Weer</th>
+						<th>Temp</th>
+						<th>Wind</th>
+					</tr>
+				</table>
+			</div>
 		</div>
 		<div id="footer">
-	  <div id="pageMarker">
-		<div class="pageSelector"></div>
-		<div class="pageSelector pageSelected"></div>
-		<div class="pageSelector"></div>
-	  </div>
-	</div>
-	</div>
-  
-	<!-- Andere pagina's volgen dit format -->
+			<div id="pageMarker">
+				<div class="pageSelector"></div>
+				<div class="pageSelector pageSelected"></div>
+				<div class="pageSelector"></div>
+			</div>
+		</div>
+	</div><!-- Andere pagina's volgen dit format -->
 	<div class="" data-role="page" id="weatherWeek">
-	<div id="header" class="clearfix">
-	<img id ="logo" src="img/logo.png" width="50" height="50" alt="logo" />
-	<div id=title >
-	<h1>Weer week</h1>
-	</div>
-	<a href="#settings"><img src="img/settings.png" alt="settings" id="settingsButton"></a>
-	</div>
-	<div id="content">
-	<div id="weatherWeek" class="clearfix heroBox">
-	<div class="weatherDescription">
-	<h2 id="week">Deze week</h2>
-	<p id="aText">
-	Geen weer? Foutmelding!
-	</p>
-	</div>
-	<div id="aIcon"><img src='img/day/293.png' alt='Default weather icon'></div>
-	</div>
-	<div id="weekOverview">
-	<table id="tWeek">
-	<tr>
-	<th>Dag</th>
-	<th>Weer</th>
-	<th>Temp.</th>
-	<th>Luchtvocht.</th>
-	<th>Wind</th>
-	</tr>
-	</table>
-	</div>
-	</div>
-	</div>
-
-	<!-- Eerste pagina voor instellen vd wasknijper -->
+		<div class="clearfix" id="header">
+			<img alt="logo" height="50" id="logo" src="img/logo.png" width="50">
+			<div id="title">
+				<h1>Weer week</h1>
+			</div><a href="#settings"><img alt="settings" id="settingsButton" src=
+			"img/settings.png"></a>
+		</div>
+		<div id="content">
+			<div class="clearfix heroBox" id="weatherWeek">
+				<div class="weatherDescription">
+					<h2 id="week">Deze week</h2>
+					<p id="aText">Geen weer? Foutmelding!</p>
+				</div>
+				<div id="aIcon"><img alt='Default weather icon' src=
+				'img/day/293.png'></div>
+			</div>
+			<div id="weekOverview">
+				<table id="tWeek">
+					<tr>
+						<th>Dag</th>
+						<th>Weer</th>
+						<th>Temp.</th>
+						<th>Luchtvocht.</th>
+						<th>Wind</th>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div><!-- Eerste pagina voor instellen vd wasknijper -->
 	<div class="" data-role="page" id="settings">
-	<div class="ui-content" data-role="main">
-	<div class="contentBlock" style="position:relative;">
-	<h1 style="">Instellingen</h1>
-	<div style="position:absolute; right:10px; top:0px; font-size: 32px;">
-	<a href="#main" class="arrow-color"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
+		<div class="ui-content" data-role="main">
+			<div class="contentBlock" style="position:relative;">
+				<h1 style="">Instellingen</h1>
+				<div style="position:absolute; right:10px; top:0px; font-size: 32px;">
+					<a class="arrow-color" href="#main"><i aria-hidden="true" class=
+					"fa fa-arrow-left"></i></a>
+				</div>
+			</div>
+			<form id="settingForm" name="settingForm">
+				<div class="ui-field-contain">
+					<label for="location">Locatie</label> <input id="location" name="location"
+					type="text"> <button id="locButton" type="button">Locatie
+					aanpassen</button> <button id="gpsButton" type="button">Locatie
+					opvragen</button>
+				</div>
+				<div class="ui-field-contain">
+					<label for="notificaties">Notificaties ontvangen</label>
+					<select data-role="flipswitch" id="notificaties" name="notificaties"
+					onchange="changeNoti();">
+						<option value="off">
+							Uit
+						</option>
+						<option value="on">
+							Aan
+						</option>
+					</select>
+				</div>
+				<fieldset data-role="controlgroup" data-type="horizontal">
+					<legend>Eenheden</legend> <input checked="checked" id="metrisch" name=
+					"eenheid" type="radio" value="metrisch"> <label for=
+					"metrisch">Metrisch</label> <input id="imperiaal" name="eenheid" type=
+					"radio" value="imperiaal"> <label for="imperiaal">Imperiaal</label>
+				</fieldset>
+			</form><button id="connect">Connect</button><button id="disconnect" style=
+			"display:none">Disconnect</button> <button id=
+			"subscribe">Subscribe</button><button id="unsubscribe" style=
+			"display:none">Unsubscribe</button>
+			<hr style="margin:10px auto;">
+			<button data-role="button" onclick="removeKnijper()" style=
+			"text-align:center; margin-top:25px;"><i aria-hidden="true" class=
+			"fa fa-trash"></i> Reset uw SMART-Knijper</button>
+			<h4>Activity Log</h4>
+			<div id="activity"></div>
+		</div>
 	</div>
-	</div>
-	<form id="settingForm">
-	<div class="ui-field-contain">
-	<label for="location">Locatie</label>
-	<input type="text" name="location" id="location"/>
-	<button type="button" id="locButton">Locatie aanpassen</button>
-	<button type="button" id="gpsButton">Locatie opvragen</button>
-	</div>
-	<div class="ui-field-contain">
-	<label for="notificaties">Notificaties ontvangen</label>
-	<select name="notificaties" id="notificaties" data-role="flipswitch" onchange="changeNoti();">
-	<option value="off">Uit</option>
-	<option value="on">Aan</option>
-	</select>
-	</div>
-	<fieldset data-role="controlgroup" data-type="horizontal">
-	<legend>Eenheden</legend>
-	<input type="radio" name="eenheid" id="metrisch" value="metrisch" checked="checked"/>
-	<label for="metrisch">Metrisch</label>
-
-	<input type="radio" name="eenheid" id="imperiaal" value="imperiaal" />
-	<label for="imperiaal">Imperiaal</label>
-	</fieldset>
-	</form>
-	<button id="connect">Connect</button><button id="disconnect" style="display:none">Disconnect</button>
-	<button id="subscribe">Subscribe</button><button id="unsubscribe" style="display:none">Unsubscribe</button>
-	<hr style="margin:10px auto;" />
-	<button style="text-align:center; margin-top:25px;" onclick="removeKnijper()" data-role="button"><i class="fa fa-trash" aria-hidden="true"></i> Reset uw SMART-Knijper</button>
-	<h4>Activity Log</h4>
-	<div id="activity"></div>
-	</div>
-	</div>
-
 	<div class="" data-role="page" id="firstLoad">
-	<div class="ui-content" data-role="main">
-	<h1 class="title">Zoek uw Sunny</h1>
+		<div class="ui-content" data-role="main">
+			<h1 class="title">Zoek uw Sunny</h1>
+		</div>
+		<div class="scanBGwrapper">
+			<div class="scanBG">
+				<div class="scanBGbars scanBGbars1"></div>
+				<div class="scanBGbars scanBGbars2"></div>
+				<div class="scanBGbars scanBGbars3"></div>
+				<div class="scanBGbars scanBGbars4"></div>
+				<div class="scanBGbars scanBGbars5"></div>
+				<div class="scanBGbars scanBGbars6"></div>
+				<div class="scanBGbars scanBGbars7"></div>
+				<div class="scanBGbars scanBGbars8"></div>
+				<div class="scanBGbars scanBGbars9"></div>
+			</div>
+		</div>
+		<div class="ui-content wrapper toggleBtntime" data-role="main">
+			<div class="toggleBtnWrapper">
+				<div class="toggleBtn flash" onclick="toggleFlash()">
+					<i aria-hidden="true" class="fa fa-bolt"></i>
+				</div>
+				<div class="toggleBtn scan" onclick="destroyScan()">
+					<i aria-hidden="true" class="fa fa-undo"></i>
+				</div>
+			</div>
+		</div>
+		<div class="ui-content wrapper" data-role="main">
+			<div class="gevondenDevices">
+				<div>
+					<input id="KnijperName" name="name" type="hidden"> <input id="KnijperID"
+					name="key" type="hidden" value="01">
+				</div>
+			</div>
+			<div class="center addSunnyBtn">
+				<button class="ui-btn" onclick="scan_now()">Sunny toevoegen</button>
+			</div>
+		</div>
 	</div>
-
-	<div class="scanBGwrapper">
-	<div class="scanBG">
-	<div class="scanBGbars scanBGbars1"></div>
-	<div class="scanBGbars scanBGbars2"></div>
-	<div class="scanBGbars scanBGbars3"></div>
-	<div class="scanBGbars scanBGbars4"></div>
-	<div class="scanBGbars scanBGbars5"></div>
-	<div class="scanBGbars scanBGbars6"></div>
-	<div class="scanBGbars scanBGbars7"></div>
-	<div class="scanBGbars scanBGbars8"></div>
-	<div class="scanBGbars scanBGbars9"></div>
-	</div>
-	</div>
-
-	<div class="ui-content wrapper toggleBtntime" data-role="main">
-	<div class="toggleBtnWrapper">
-	<div class="toggleBtn flash" onclick="toggleFlash()"><i class="fa fa-bolt" aria-hidden="true"></i></div>
-	<div class="toggleBtn scan" onclick="destroyScan()"><i class="fa fa-undo" aria-hidden="true"></i></div>
-	</div>
-	</div>
-	<div class="ui-content wrapper" data-role="main">
-	<div class="gevondenDevices">
-	<div >
-	<input type="hidden" name="name" id="KnijperName" />
-	<input type="hidden" name="key" id="KnijperID" value="01" />
-	</div>
-	</div>
-	<div class="center addSunnyBtn">
-	<button onclick="scan_now()" class="ui-btn">Sunny toevoegen</button>
-	</div>
-	</div>
-	</div>
-
-		<script type="text/javascript" src="cordova.js"></script>
-		<script src="jq/jquery-1.11.1.js"></script>
-		<script src="jq/jquery.mobile-1.4.5.min.js"></script>
-		<script src="js/index.js"></script>
-		<script>
-		var ctx = document.getElementById('my_canvas').getContext('2d');
-		var al = 0;
-		var start = 4.72;
-		var cw = ctx.canvas.width;
-		var ch = ctx.canvas.height;
-		var diff;
-		function progressSim(){
-			diff = ((al / 100) * Math.PI*2*10).toFixed(2);
-		  ctx.font="30px Verdana";
-			ctx.clearRect(0, 0, cw, ch);
-			ctx.lineWidth = 10;
-			ctx.fillStyle = '#fb0';
-			ctx.strokeStyle = "#fb0";
-			ctx.textAlign = 'center';
-			ctx.fillText("Uw was is: "+al+"% droog", cw*.5, ch*.45+2, cw);
-			ctx.beginPath();
-			ctx.arc(cw/2, cw/2, 200, start, diff/10+start, false);
-			ctx.stroke();
-		  ctx.beginPath();
-		  ctx.lineWidth = 2;
-		  ctx.moveTo((cw/2)-200,cw/2);
-		  ctx.lineTo((cw/2)+200,cw/2);
-		  ctx.stroke();
-			if(al >= 100){
-				clearTimeout(sim);
-				// Add message code!
-			}
-		}
-		var sim = setInterval(progressSim, 50);
-		</script>
-		<script src="js/weather.js" type="text/javascript"></script>
-		<script src="js/pageSwitcher.js"></script>
-		<script src="js/qr.js" type="text/javascript"></script>
-	</body>
+	<script src="cordova.js" type="text/javascript">
+	</script>
+	<script src="jq/jquery-1.11.1.js">
+	</script>
+	<script src="jq/jquery.mobile-1.4.5.min.js">
+	</script>
+	<script src="js/index.js">
+	</script>
+	<script>
+	       var ctx = document.getElementById('my_canvas').getContext('2d');
+	       var al = 0;
+	       var start = 4.72;
+	       var cw = ctx.canvas.width;
+	       var ch = ctx.canvas.height;
+	       var diff;
+	       function progressSim(){
+	           diff = ((al / 100) * Math.PI*2*10).toFixed(2);
+	         ctx.font="30px Verdana";
+	           ctx.clearRect(0, 0, cw, ch);
+	           ctx.lineWidth = 10;
+	           ctx.fillStyle = '#fb0';
+	           ctx.strokeStyle = "#fb0";
+	           ctx.textAlign = 'center';
+	           ctx.fillText("Uw was is: "+al+"% droog", cw*.5, ch*.45+2, cw);
+	           ctx.beginPath();
+	           ctx.arc(cw/2, cw/2, 200, start, diff/10+start, false);
+	           ctx.stroke();
+	         ctx.beginPath();
+	         ctx.lineWidth = 2;
+	         ctx.moveTo((cw/2)-200,cw/2);
+	         ctx.lineTo((cw/2)+200,cw/2);
+	         ctx.stroke();
+	           if(al >= 100){
+	               clearTimeout(sim);
+	               // Add message code!
+	           }
+	       }
+	       var sim = setInterval(progressSim, 50);
+	</script>
+	<script src="js/weather.js" type="text/javascript">
+	</script>
+	<script src="js/pageSwitcher.js">
+	</script>
+	<script src="js/qr.js" type="text/javascript">
+	</script>
+</body>
 </html>
